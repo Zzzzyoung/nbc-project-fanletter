@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const StMemberTabWrapper = styled.section`
+const MemberTabWrapper = styled.nav`
   display: flex;
   gap: 15px;
   padding: 15px;
@@ -9,7 +9,7 @@ const StMemberTabWrapper = styled.section`
   border-radius: 10px;
 `;
 
-const StMemberTab = styled.button`
+const MemberTabBtn = styled.button`
   height: 40px;
   width: 100px;
   font-size: 18px;
@@ -32,20 +32,20 @@ function MemberTab({ selectedMember, setSelectedMember }) {
   };
 
   return (
-    <StMemberTabWrapper>
+    <MemberTabWrapper>
       {aespa.map(({ id, name }) => {
         return (
-          <StMemberTab
+          <MemberTabBtn
             type="button"
             key={id}
             onClick={() => clickMemberTab(name)}
             selected={selectedMember === name}
           >
             {name}
-          </StMemberTab>
+          </MemberTabBtn>
         );
       })}
-    </StMemberTabWrapper>
+    </MemberTabWrapper>
   );
 }
 

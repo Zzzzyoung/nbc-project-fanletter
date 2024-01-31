@@ -2,7 +2,7 @@ import React from "react";
 import MemberTab from "./MemberTab";
 import styled from "styled-components";
 
-const StContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ const StContainer = styled.div`
   background-color: pink;
 `;
 
-const StTitle = styled.h1`
+const Title = styled.h1`
   font-size: 48px;
   font-weight: 900;
   margin: 60px auto 50px auto;
@@ -20,13 +20,13 @@ const StTitle = styled.h1`
 
 function Header({ selectedMember, setSelectedMember }) {
   return (
-    <StContainer>
-      <StTitle>리액트 팬레터함</StTitle>
+    <Container>
+      <Title>에스파 팬레터함</Title>
       <MemberTab
         selectedMember={selectedMember}
         setSelectedMember={setSelectedMember}
       />
-    </StContainer>
+    </Container>
   );
 }
 

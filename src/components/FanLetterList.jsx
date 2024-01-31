@@ -1,9 +1,8 @@
 import React from "react";
-import fakeData from "fakeData.json";
 import FanLetterItem from "./FanLetterItem";
 import styled from "styled-components";
 
-const StFanLetterListWrapper = styled.ul`
+const FanLetterListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -13,17 +12,17 @@ const StFanLetterListWrapper = styled.ul`
   border-radius: 10px;
 `;
 
-function FanLetterList({ selectedMember }) {
-  const filteredLetterItem = fakeData.filter((item) => {
+function FanLetterList({ fanLetter, selectedMember }) {
+  const filteredLetterItem = fanLetter.filter((item) => {
     return item.writedTo === selectedMember;
   });
 
   return (
-    <StFanLetterListWrapper>
+    <FanLetterListWrapper>
       {filteredLetterItem.map((item) => (
         <FanLetterItem key={item.id} item={item} />
       ))}
-    </StFanLetterListWrapper>
+    </FanLetterListWrapper>
   );
 }
 

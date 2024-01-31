@@ -2,7 +2,7 @@ import React from "react";
 import defaultUserImg from "assets/defaultUserImg.png";
 import styled from "styled-components";
 
-const StFanLetterItemWrapper = styled.li`
+const FanLetterItemWrapper = styled.li`
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -17,13 +17,13 @@ const StFanLetterItemWrapper = styled.li`
   }
 `;
 
-const StUserInfo = styled.section`
+const UserInfo = styled.section`
   display: flex;
   align-items: center;
   gap: 15px;
 `;
 
-const StUserImg = styled.figure`
+const UserImg = styled.figure`
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -36,13 +36,13 @@ const StUserImg = styled.figure`
   }
 `;
 
-const StUserText = styled.article`
+const UserText = styled.article`
   display: flex;
   flex-direction: column;
   gap: 10px;
 `;
 
-const StComment = styled.section`
+const Content = styled.section`
   background-color: green;
   border-radius: 10px;
   padding: 10px;
@@ -66,18 +66,18 @@ function FanLetterItem({ item }) {
   );
 
   return (
-    <StFanLetterItemWrapper>
-      <StUserInfo>
-        <StUserImg>
+    <FanLetterItemWrapper>
+      <UserInfo>
+        <UserImg>
           <img src={item.avatar ?? defaultUserImg} alt="유저이미지" />
-        </StUserImg>
-        <StUserText>
+        </UserImg>
+        <UserText>
           <p>{item.nickname}</p>
           <time>{formattedCreatedAt}</time>
-        </StUserText>
-      </StUserInfo>
-      <StComment>{item.content}</StComment>
-    </StFanLetterItemWrapper>
+        </UserText>
+      </UserInfo>
+      <Content>{item.content}</Content>
+    </FanLetterItemWrapper>
   );
 }
 
