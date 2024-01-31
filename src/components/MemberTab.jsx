@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StMemberTabWrapper = styled.section`
@@ -19,29 +19,27 @@ const StMemberTab = styled.button`
   cursor: pointer;
 `;
 
-const teletubbies = [
-  { id: 1, name: "보라돌이" },
-  { id: 2, name: "뚜비" },
-  { id: 3, name: "나나" },
-  { id: 4, name: "뽀" },
+const aespa = [
+  { id: 1, name: "카리나" },
+  { id: 2, name: "지젤" },
+  { id: 3, name: "윈터" },
+  { id: 4, name: "닝닝" },
 ];
 
-function MemberTab() {
-  const [selectMember, setSelectMember] = useState("보라돌이");
-
+function MemberTab({ selectedMember, setSelectedMember }) {
   const clickMemberTab = (name) => {
-    setSelectMember(name);
+    setSelectedMember(name);
   };
 
   return (
     <StMemberTabWrapper>
-      {teletubbies.map(({ id, name }) => {
+      {aespa.map(({ id, name }) => {
         return (
           <StMemberTab
             type="button"
             key={id}
             onClick={() => clickMemberTab(name)}
-            selected={selectMember === name}
+            selected={selectedMember === name}
           >
             {name}
           </StMemberTab>

@@ -18,11 +18,14 @@ const StTitle = styled.h1`
   margin: 60px auto 50px auto;
 `;
 
-function Header() {
+function Header({ selectedMember, setSelectedMember }) {
   return (
     <StContainer>
       <StTitle>리액트 팬레터함</StTitle>
-      <MemberTab />
+      <MemberTab
+        selectedMember={selectedMember}
+        setSelectedMember={setSelectedMember}
+      />
     </StContainer>
   );
 }

@@ -1,7 +1,7 @@
 import FanLetterForm from "components/FanLetterForm";
 import FanLetterList from "components/FanLetterList";
 import Header from "components/Header";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StContainer = styled.div`
@@ -11,11 +11,16 @@ const StContainer = styled.div`
 `;
 
 function Home() {
+  const [selectedMember, setSelectedMember] = useState("카리나");
+
   return (
     <StContainer>
-      <Header />
+      <Header
+        selectedMember={selectedMember}
+        setSelectedMember={setSelectedMember}
+      />
       <FanLetterForm />
-      <FanLetterList />
+      <FanLetterList selectedMember={selectedMember} />
     </StContainer>
   );
 }
