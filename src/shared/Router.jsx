@@ -1,22 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import Detail from "pages/Detail";
 import Home from "pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import fakeData from "fakeData.json";
-import { FanLetterContext } from "context/FanLetterContext";
+
+import FanLetterContextProvider from "context/FanLetterContext";
 
 function Router() {
-  const [fanLetter, setFanLetter] = useState(fakeData);
-
   return (
-    <FanLetterContext.Provider value={{ fanLetter, setFanLetter }}>
+    <FanLetterContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/detail/:id" element={<Detail />} />
         </Routes>
       </BrowserRouter>
-    </FanLetterContext.Provider>
+    </FanLetterContextProvider>
   );
 }
 

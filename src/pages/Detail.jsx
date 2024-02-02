@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import defaultUserImg from "assets/defaultUserImg.png";
-import { MemberContext } from "context/MemberContext";
 import { FanLetterContext } from "context/FanLetterContext";
 
 const HomeBtn = styled.div`

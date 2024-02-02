@@ -81,7 +81,6 @@ function FanLetterForm() {
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
   const [member, setMember] = useState("카리나");
-
   const { fanLetter, setFanLetter } = useContext(FanLetterContext);
 
   // 팬레터 제출하기

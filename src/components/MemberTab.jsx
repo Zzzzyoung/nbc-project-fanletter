@@ -28,11 +28,11 @@ const aespa = [
 ];
 
 function MemberTab() {
+  const { selectedMember, setSelectedMember } = useContext(MemberContext);
+
   const clickMemberTab = (name) => {
     setSelectedMember(name);
   };
-
-  const { selectedMember, setSelectedMember } = useContext(MemberContext);
 
   return (
     <MemberTabWrapper>

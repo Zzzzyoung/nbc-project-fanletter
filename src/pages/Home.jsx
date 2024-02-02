@@ -1,8 +1,7 @@
 import FanLetterForm from "components/FanLetterForm";
 import FanLetterList from "components/FanLetterList";
 import Header from "components/Header";
-import { MemberContext } from "context/MemberContext";
-import React, { useState } from "react";
+import MemberContextProvider from "context/MemberContext";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -12,16 +11,14 @@ const Container = styled.div`
 `;
 
 function Home() {
-  const [selectedMember, setSelectedMember] = useState("카리나");
-
   return (
-    <Container>
-      <MemberContext.Provider value={{ selectedMember, setSelectedMember }}>
+    <MemberContextProvider>
+      <Container>
         <Header />
         <FanLetterForm />
         <FanLetterList />
-      </MemberContext.Provider>
-    </Container>
+      </Container>
+    </MemberContextProvider>
   );
 }
 
