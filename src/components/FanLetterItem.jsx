@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import defaultUserImg from "assets/defaultUserImg.png";
+import { formattedCreatedAt } from "components/common/Date";
+import UserImg from "./common/UserImg";
 
 const FanLetterItemWrapper = styled.li`
   display: flex;
@@ -22,20 +23,6 @@ const UserInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
-`;
-
-const UserImg = styled.figure`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    border-radius: 50%;
-  }
 `;
 
 const UserText = styled.div`
@@ -62,19 +49,6 @@ const Content = styled.p`
 function FanLetterItem({ item }) {
   const navigate = useNavigate();
 
-  const formattedCreatedAt = new Date(item.createdAt).toLocaleDateString(
-    "ko-Kr",
-    {
-      year: "2-digit",
-      month: "2-digit",
-      day: "2-digit",
-      weekday: "short",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    }
-  );
-
   return (
     <FanLetterItemWrapper
       onClick={() => {
@@ -82,12 +56,10 @@ function FanLetterItem({ item }) {
       }}
     >
       <UserInfo>
-        <UserImg>
-          <img src={item.avatar ?? defaultUserImg} alt="유저이미지" />
-        </UserImg>
+        <UserImg item={item.avatar} />
         <UserText>
           <p>{item.nickname}</p>
-          <time>{formattedCreatedAt}</time>
+          <time>{formattedCreatedAt(item.createdAt)}</time>
         </UserText>
       </UserInfo>
       <Content>{item.content}</Content>

@@ -1,8 +1,8 @@
 import React from "react";
-import MemberTab from "./MemberTab";
+import MemberTab from "../MemberTab";
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,6 @@ function Header() {
   return (
     <Container>
       <Title>에스파 팬레터함</Title>
-      <p>redux 브랜치 생성</p>
       <MemberTab />
     </Container>
   );

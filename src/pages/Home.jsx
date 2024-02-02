@@ -1,6 +1,7 @@
 import FanLetterForm from "components/FanLetterForm";
 import FanLetterList from "components/FanLetterList";
-import Header from "components/Header";
+import Footer from "components/Layout/Footer";
+import Header from "components/Layout/Header";
 import MemberContextProvider from "context/MemberContext";
 import styled from "styled-components";
 
@@ -17,6 +18,7 @@ function Home() {
         <Header />
         <FanLetterForm />
         <FanLetterList />
+        <Footer />
       </Container>
     </MemberContextProvider>
   );

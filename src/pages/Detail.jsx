@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import defaultUserImg from "assets/defaultUserImg.png";
 import { FanLetterContext } from "context/FanLetterContext";
+import { formattedCreatedAt } from "components/common/Date";
+import UserImg from "components/common/UserImg";
 
 const HomeBtn = styled.div`
   margin: 20px 20px;
@@ -40,20 +42,6 @@ const UserInfo = styled.div`
   gap: 30px;
   font-size: 32px;
   font-weight: 600;
-
-  & figure {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      border-radius: 50%;
-    }
-  }
 
   & p {
     width: 400px;
@@ -109,16 +97,6 @@ function Detail() {
     (item) => item.id === id
   );
 
-  const formattedCreatedAt = new Date(createdAt).toLocaleDateString("ko-Kr", {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit",
-    weekday: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
-
   // 수정하기
   const clickEditDoneBtn = () => {
     if (!editedTextArea) {
@@ -167,12 +145,10 @@ function Detail() {
         <DetailFanLetterItemWrapper>
           <UserHeader>
             <UserInfo>
-              <figure>
-                <img src={avatar ?? defaultUserImg} alt="유저이미지" />
-              </figure>
+              <UserImg item={avatar} size="large" />
               <p>{nickname}</p>
             </UserInfo>
-            <time>{formattedCreatedAt}</time>
+            <time>{formattedCreatedAt(createdAt)}</time>
           </UserHeader>
           {isEditing ? (
             <>
