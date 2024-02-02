@@ -5,6 +5,8 @@ import { FanLetterContext } from "context/FanLetterContext";
 import { formattedCreatedAt } from "components/common/Date";
 import UserImg from "components/common/UserImg";
 import Button from "components/common/Button";
+import Modal from "react-modal";
+import CommonModal from "components/common/CommonModal";
 
 const HomeBtn = styled.div`
   margin: 20px 20px;
@@ -79,12 +81,51 @@ const BtnWrapper = styled.footer`
   margin-right: 40px;
 `;
 
+// const ModalStyles = {
+//   content: {
+//     height: "300px",
+//     width: "500px",
+//     margin: "auto",
+//   },
+// };
+
+// const ModalContent = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 40px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   text-align: center;
+
+//   & p {
+//     font-size: 18px;
+//   }
+// `;
+
+// const ModalBtnWrapper = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   gap: 30px;
+
+//   & button {
+//     background-color: black;
+//     color: white;
+//     padding: 8px 12px;
+//     border-radius: 5px;
+//     font-size: 13px;
+//     cursor: pointer;
+//   }
+// `;
+
 function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [editedTextArea, setEditedTextArea] = useState("");
   const { fanLetter, setFanLetter } = useContext(FanLetterContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { avatar, nickname, createdAt, writedTo, content } = fanLetter.find(
     (item) => item.id === id
@@ -112,16 +153,26 @@ function Detail() {
     }
   };
 
+  // 모달창 열기
+  const openModal = () => setIsModalOpen(true);
+  // 모달창 닫기
+  const closeModal = () => setIsModalOpen(false);
+
   // 삭제하기
   const clickDeleteBtn = () => {
-    const checkDelete = window.confirm("삭제하시겠습니까?");
-
-    if (checkDelete) {
-      const remainFanLetter = fanLetter.filter((item) => item.id !== id);
-      navigate("/");
-      setFanLetter(remainFanLetter);
-    } else return;
+    openModal();
   };
+
+  // 모달창 확인
+  const confirmModal = () => {
+    const remainFanLetter = fanLetter.filter((item) => item.id !== id);
+    navigate("/");
+    setFanLetter(remainFanLetter);
+    closeModal();
+  };
+
+  // 모달창 취소
+  const cancelModal = () => closeModal();
 
   return (
     <>
@@ -170,8 +221,16 @@ function Detail() {
               </BtnWrapper>
             </>
           )}
+          modalTitle
         </DetailFanLetterItemWrapper>
       </Container>
+
+      <CommonModal
+        isOpen={isModalOpen}
+        confirmModal={confirmModal}
+        cancelModal={cancelModal}
+        modalTitle="삭제하시겠습니까?"
+      />
     </>
   );
 }

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { FanLetterContext } from "context/FanLetterContext";
 import Button from "./common/Button";
 import Modal from "react-modal";
+import CommonModal from "./common/CommonModal";
 
 const Form = styled.form`
   display: flex;
@@ -69,47 +70,6 @@ const FormBtn = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-
-const ModalStyles = {
-  content: {
-    height: "300px",
-    width: "500px",
-    margin: "auto",
-  },
-};
-
-const StModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-
-  & p {
-    font-size: 18px;
-  }
-`;
-
-const ModalBtnWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-
-  & button {
-    background-color: black;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-  }
-`;
-
-// react-modal을 위한 appElement 설정
-Modal.setAppElement("#root"); // 실제 root 요소의 ID로 변경해라
 
 function FanLetterForm() {
   const [nickname, setNickname] = useState("");
@@ -207,15 +167,12 @@ function FanLetterForm() {
         <Button btnname="펜레터 등록" onClick={submitFanLetter} />
       </FormBtn>
 
-      <Modal isOpen={isModalOpen} style={ModalStyles}>
-        <StModalContent>
-          <p>펜레터를 등록하시겠습니까?</p>
-          <ModalBtnWrapper>
-            <button onClick={confirmModal}>확인</button>
-            <button onClick={cancelModal}>취소</button>
-          </ModalBtnWrapper>
-        </StModalContent>
-      </Modal>
+      <CommonModal
+        isOpen={isModalOpen}
+        confirmModal={confirmModal}
+        cancelModal={cancelModal}
+        modalTitle="펜레터를 등록하시겠습니까?"
+      />
     </Form>
   );
 }
