@@ -22,6 +22,7 @@ function Header() {
   return (
     <Container>
       <Title>에스파 팬레터함</Title>
+      <p>redux 브랜치 생성</p>
       <MemberTab />
     </Container>
   );
