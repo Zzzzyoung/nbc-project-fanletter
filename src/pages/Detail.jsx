@@ -50,6 +50,11 @@ const UserMain = styled.div`
   margin: 40px 40px 20px 40px;
 `;
 
+const ToWhom = styled.p`
+  font-size: 23px;
+  font-weight: 500;
+`;
+
 const EditContent = styled.textarea`
   padding: 20px 30px;
   height: 202px;
@@ -140,7 +145,7 @@ function Detail() {
           {isEditing ? (
             <>
               <UserMain>
-                <p>To. {writedTo}</p>
+                <ToWhom>To. {writedTo}</ToWhom>
                 <EditContent
                   defaultValue={content}
                   maxLength={100}
@@ -156,7 +161,7 @@ function Detail() {
           ) : (
             <>
               <UserMain>
-                <p>To. {writedTo}</p>
+                <ToWhom>To. {writedTo}</ToWhom>
                 <UserContent>{content}</UserContent>
               </UserMain>
               <BtnWrapper>

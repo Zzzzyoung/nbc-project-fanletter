@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
 import { FanLetterContext } from "context/FanLetterContext";
 import Button from "./common/Button";
+import Modal from "react-modal";
 
 const Form = styled.form`
   display: flex;
@@ -69,11 +70,63 @@ const FormBtn = styled.div`
   justify-content: flex-end;
 `;
 
+const ModalStyles = {
+  content: {
+    height: "300px",
+    width: "500px",
+    margin: "auto",
+  },
+};
+
+const StModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  & p {
+    font-size: 18px;
+  }
+`;
+
+const ModalBtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  & button {
+    background-color: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+`;
+
+// react-modal을 위한 appElement 설정
+Modal.setAppElement("#root"); // 실제 root 요소의 ID로 변경해라
+
 function FanLetterForm() {
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
   const [member, setMember] = useState("카리나");
   const { fanLetter, setFanLetter } = useContext(FanLetterContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // 모달이 열리면 body에 overflow: hidden; 스타일 적용
+  useEffect(() => {
+    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+  }, [isModalOpen]);
+
+  // 모달창 열기
+  const openModal = () => setIsModalOpen(true);
+  // 모달창 닫기
+  const closeModal = () => setIsModalOpen(false);
 
   // 팬레터 제출하기
   const submitFanLetter = (event) => {
@@ -85,24 +138,30 @@ function FanLetterForm() {
     } else if (nickname && !content) {
       return alert("내용을 입력하세요.");
     } else {
-      const checkSubmit = window.confirm("팬레터를 등록하시겠습니까?");
-      if (checkSubmit) {
-        const newFanLetter = {
-          createdAt: new Date(),
-          nickname,
-          avatar: null,
-          content,
-          writedTo: member,
-          id: uuid(),
-        };
-
-        setFanLetter([newFanLetter, ...fanLetter]);
-        setNickname("");
-        setContent("");
-        setMember("카리나");
-      }
+      openModal();
     }
   };
+
+  // 모달창 확인
+  const confirmModal = () => {
+    const newFanLetter = {
+      createdAt: new Date(),
+      nickname,
+      avatar: null,
+      content,
+      writedTo: member,
+      id: uuid(),
+    };
+
+    setFanLetter([newFanLetter, ...fanLetter]);
+    setNickname("");
+    setContent("");
+    setMember("카리나");
+    closeModal();
+  };
+
+  // 모달창 취소
+  const cancelModal = () => closeModal();
 
   return (
     <Form>
@@ -147,6 +206,16 @@ function FanLetterForm() {
       <FormBtn>
         <Button btnname="펜레터 등록" onClick={submitFanLetter} />
       </FormBtn>
+
+      <Modal isOpen={isModalOpen} style={ModalStyles}>
+        <StModalContent>
+          <p>펜레터를 등록하시겠습니까?</p>
+          <ModalBtnWrapper>
+            <button onClick={confirmModal}>확인</button>
+            <button onClick={cancelModal}>취소</button>
+          </ModalBtnWrapper>
+        </StModalContent>
+      </Modal>
     </Form>
   );
 }
