@@ -12,16 +12,35 @@ const FanLetterListWrapper = styled.ul`
   border-radius: 10px;
 `;
 
+const LetterNone = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+`;
+
 function FanLetterList({ fanLetter, selectedMember }) {
-  const filteredLetterItem = fanLetter.filter((item) => {
+  const filteredFanLetterItem = fanLetter.filter((item) => {
     return item.writedTo === selectedMember;
   });
 
   return (
     <FanLetterListWrapper>
-      {filteredLetterItem.map((item) => (
-        <FanLetterItem key={item.id} item={item} />
-      ))}
+      {filteredFanLetterItem.length === 0 ? (
+        <LetterNone>
+          <p>✉️ {selectedMember}에게 남겨진 팬레터가 없습니다. </p>
+          <p> 첫 번째 팬레터의 주인공이 되어주세요! ✉️</p>
+        </LetterNone>
+      ) : (
+        filteredFanLetterItem.map((item) => (
+          <FanLetterItem key={item.id} item={item} />
+        ))
+      )}
     </FanLetterListWrapper>
   );
 }

@@ -1,7 +1,6 @@
 import FanLetterForm from "components/FanLetterForm";
 import FanLetterList from "components/FanLetterList";
 import Header from "components/Header";
-import fakeData from "fakeData.json";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -11,9 +10,8 @@ const StContainer = styled.div`
   align-items: center;
 `;
 
-function Home() {
+function Home({ fanLetter, setFanLetter }) {
   const [selectedMember, setSelectedMember] = useState("카리나");
-  const [fanLetter, setFanLetter] = useState(fakeData);
 
   return (
     <StContainer>

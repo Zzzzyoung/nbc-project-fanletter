@@ -1,6 +1,7 @@
 import React from "react";
-import defaultUserImg from "assets/defaultUserImg.png";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import defaultUserImg from "assets/defaultUserImg.png";
 
 const FanLetterItemWrapper = styled.li`
   display: flex;
@@ -17,7 +18,7 @@ const FanLetterItemWrapper = styled.li`
   }
 `;
 
-const UserInfo = styled.section`
+const UserInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
@@ -28,6 +29,7 @@ const UserImg = styled.figure`
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
+
   & img {
     width: 100%;
     height: 100%;
@@ -36,22 +38,30 @@ const UserImg = styled.figure`
   }
 `;
 
-const UserText = styled.article`
+const UserText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  & p {
+    font-size: 18px;
+    font-weight: 500;
+  }
 `;
 
-const Content = styled.section`
+const Content = styled.p`
   background-color: green;
   border-radius: 10px;
   padding: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 16px;
 `;
 
 function FanLetterItem({ item }) {
+  const navigate = useNavigate();
+
   const formattedCreatedAt = new Date(item.createdAt).toLocaleDateString(
     "ko-Kr",
     {
@@ -66,7 +76,11 @@ function FanLetterItem({ item }) {
   );
 
   return (
-    <FanLetterItemWrapper>
+    <FanLetterItemWrapper
+      onClick={() => {
+        navigate(`/detail/${item.id}`);
+      }}
+    >
       <UserInfo>
         <UserImg>
           <img src={item.avatar ?? defaultUserImg} alt="유저이미지" />

@@ -13,7 +13,7 @@ const Form = styled.form`
   border-radius: 10px;
 `;
 
-const FormInput = styled.section`
+const FormInput = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
@@ -29,7 +29,7 @@ const FormInput = styled.section`
   }
 `;
 
-const FormTextarea = styled.section`
+const FormTextarea = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
@@ -47,7 +47,7 @@ const FormTextarea = styled.section`
   }
 `;
 
-const FormSelect = styled.section`
+const FormSelect = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
@@ -62,7 +62,7 @@ const FormSelect = styled.section`
   }
 `;
 
-const FormBtn = styled.section`
+const FormBtn = styled.div`
   display: flex;
   justify-content: flex-end;
 
@@ -81,27 +81,32 @@ function FanLetterForm({ fanLetter, setFanLetter }) {
   const [content, setContent] = useState("");
   const [member, setMember] = useState("카리나");
 
-  const onSubmitFanLetter = (event) => {
+  // 팬레터 제출하기
+  const submitFanLetter = (event) => {
     event.preventDefault();
 
+    // 유효성 검사
     if (!nickname) {
       return alert("닉네임을 입력하세요.");
     } else if (nickname && !content) {
       return alert("내용을 입력하세요.");
     } else {
-      const newFanLetter = {
-        createdAt: new Date(),
-        nickname,
-        avatar: null,
-        content,
-        writedTo: member,
-        id: uuid(),
-      };
+      const checkSubmit = window.confirm("팬레터를 등록하시겠습니까?");
+      if (checkSubmit) {
+        const newFanLetter = {
+          createdAt: new Date(),
+          nickname,
+          avatar: null,
+          content,
+          writedTo: member,
+          id: uuid(),
+        };
 
-      setFanLetter([newFanLetter, ...fanLetter]);
-      setNickname("");
-      setContent("");
-      setMember("카리나");
+        setFanLetter([newFanLetter, ...fanLetter]);
+        setNickname("");
+        setContent("");
+        setMember("카리나");
+      }
     }
   };
 
@@ -146,7 +151,7 @@ function FanLetterForm({ fanLetter, setFanLetter }) {
         </div>
       </FormSelect>
       <FormBtn>
-        <button type="submit" onClick={onSubmitFanLetter}>
+        <button type="submit" onClick={submitFanLetter}>
           팬레터 등록
         </button>
       </FormBtn>
