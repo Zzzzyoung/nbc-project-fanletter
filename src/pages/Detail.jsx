@@ -141,7 +141,7 @@ function Detail({ fanLetter, setFanLetter }) {
 
   // 삭제하기
   const clickDeleteBtn = () => {
-    const checkDelete = window.confirm("정말 삭제하시겠습니까?");
+    const checkDelete = window.confirm("삭제하시겠습니까?");
 
     if (checkDelete) {
       const remainFanLetter = fanLetter.filter((item) => item.id !== id);
