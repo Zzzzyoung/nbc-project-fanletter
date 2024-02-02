@@ -67,15 +67,6 @@ const FormSelect = styled.div`
 const FormBtn = styled.div`
   display: flex;
   justify-content: flex-end;
-
-  /* & button {
-    background-color: black;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-  } */
 `;
 
 function FanLetterForm() {
@@ -155,9 +146,6 @@ function FanLetterForm() {
       </FormSelect>
       <FormBtn>
         <Button btnname="펜레터 등록" onClick={submitFanLetter} />
-        {/* <button type="submit" onClick={submitFanLetter}>
-          팬레터 등록
-        </button> */}
       </FormBtn>
     </Form>
   );

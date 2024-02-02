@@ -8,15 +8,6 @@ import Button from "components/common/Button";
 
 const HomeBtn = styled.div`
   margin: 20px 20px;
-
-  /* & button {
-    background-color: black;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-  } */
 `;
 
 const Container = styled.section`
@@ -81,15 +72,6 @@ const BtnWrapper = styled.footer`
   justify-content: flex-end;
   gap: 10px;
   margin-right: 40px;
-
-  /* & button {
-    background-color: black;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-  } */
 `;
 
 function Detail() {
@@ -159,7 +141,6 @@ function Detail() {
             <>
               <UserMain>
                 <p>To. {writedTo}</p>
-                {/* <UserContent>{content}</UserContent> */}
                 <EditContent
                   defaultValue={content}
                   maxLength={100}
