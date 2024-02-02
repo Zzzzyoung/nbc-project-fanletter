@@ -1,19 +1,22 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import defaultUserImg from "assets/defaultUserImg.png";
 import { FanLetterContext } from "context/FanLetterContext";
 import { formattedCreatedAt } from "components/common/Date";
 import UserImg from "components/common/UserImg";
+import Button from "components/common/Button";
 
 const HomeBtn = styled.div`
   margin: 20px 20px;
 
-  & button {
-    height: 35px;
-    width: 70px;
-    font-size: 15px;
-  }
+  /* & button {
+    background-color: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+  } */
 `;
 
 const Container = styled.section`
@@ -79,11 +82,14 @@ const BtnWrapper = styled.footer`
   gap: 10px;
   margin-right: 40px;
 
-  & button {
-    height: 35px;
-    width: 55px;
-    font-size: 15px;
-  }
+  /* & button {
+    background-color: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+  } */
 `;
 
 function Detail() {
@@ -133,13 +139,12 @@ function Detail() {
   return (
     <>
       <HomeBtn>
-        <button
+        <Button
+          btnname="홈으로"
           onClick={() => {
             navigate("/");
           }}
-        >
-          홈으로
-        </button>
+        />
       </HomeBtn>
       <Container>
         <DetailFanLetterItemWrapper>
@@ -163,8 +168,8 @@ function Detail() {
                 />
               </UserMain>
               <BtnWrapper>
-                <button onClick={clickEditDoneBtn}>수정 완료</button>
-                <button onClick={() => setIsEditing(false)}>취소</button>
+                <Button btnname="수정완료" onClick={clickEditDoneBtn} />
+                <Button btnname="취소" onClick={() => setIsEditing(false)} />
               </BtnWrapper>
             </>
           ) : (
@@ -174,8 +179,8 @@ function Detail() {
                 <UserContent>{content}</UserContent>
               </UserMain>
               <BtnWrapper>
-                <button onClick={() => setIsEditing(true)}>수정</button>
-                <button onClick={clickDeleteBtn}>삭제</button>
+                <Button btnname="수정" onClick={() => setIsEditing(true)} />
+                <Button btnname="삭제" onClick={clickDeleteBtn} />
               </BtnWrapper>
             </>
           )}

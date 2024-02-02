@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
 import { FanLetterContext } from "context/FanLetterContext";
+import Button from "./common/Button";
 
 const Form = styled.form`
   display: flex;
@@ -67,14 +68,14 @@ const FormBtn = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  & button {
+  /* & button {
     background-color: black;
     color: white;
-    padding: 8px 10px;
+    padding: 8px 12px;
     border-radius: 5px;
     font-size: 13px;
     cursor: pointer;
-  }
+  } */
 `;
 
 function FanLetterForm() {
@@ -153,9 +154,10 @@ function FanLetterForm() {
         </div>
       </FormSelect>
       <FormBtn>
-        <button type="submit" onClick={submitFanLetter}>
+        <Button btnname="펜레터 등록" onClick={submitFanLetter} />
+        {/* <button type="submit" onClick={submitFanLetter}>
           팬레터 등록
-        </button>
+        </button> */}
       </FormBtn>
     </Form>
   );
