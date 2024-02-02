@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import FanLetterItem from "./FanLetterItem";
 import styled from "styled-components";
+import { FanLetterContext } from "context/FanLetterContext";
+import { MemberContext } from "context/MemberContext";
 
 const FanLetterListWrapper = styled.ul`
   display: flex;
@@ -24,7 +26,10 @@ const LetterNone = styled.div`
   }
 `;
 
-function FanLetterList({ fanLetter, selectedMember }) {
+function FanLetterList() {
+  const { fanLetter } = useContext(FanLetterContext);
+  const { selectedMember } = useContext(MemberContext);
+
   const filteredFanLetterItem = fanLetter.filter((item) => {
     return item.writedTo === selectedMember;
   });

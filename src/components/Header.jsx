@@ -18,15 +18,11 @@ const Title = styled.h1`
   margin: 60px auto 50px auto;
 `;
 
-function Header({ selectedMember, setSelectedMember }) {
+function Header() {
   return (
     <Container>
       <Title>에스파 팬레터함</Title>
-      <p>context 브랜치 생성</p>
-      <MemberTab
-        selectedMember={selectedMember}
-        setSelectedMember={setSelectedMember}
-      />
+      <MemberTab />
     </Container>
   );
 }

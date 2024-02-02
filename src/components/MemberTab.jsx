@@ -1,4 +1,5 @@
-import React from "react";
+import { MemberContext } from "context/MemberContext";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 const MemberTabWrapper = styled.nav`
@@ -26,10 +27,12 @@ const aespa = [
   { id: 4, name: "닝닝" },
 ];
 
-function MemberTab({ selectedMember, setSelectedMember }) {
+function MemberTab() {
   const clickMemberTab = (name) => {
     setSelectedMember(name);
   };
+
+  const { selectedMember, setSelectedMember } = useContext(MemberContext);
 
   return (
     <MemberTabWrapper>

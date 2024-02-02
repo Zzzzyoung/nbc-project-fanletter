@@ -3,23 +3,20 @@ import Detail from "pages/Detail";
 import Home from "pages/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import fakeData from "fakeData.json";
+import { FanLetterContext } from "context/FanLetterContext";
 
 function Router() {
   const [fanLetter, setFanLetter] = useState(fakeData);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home fanLetter={fanLetter} setFanLetter={setFanLetter} />}
-        />
-        <Route
-          path="/detail/:id"
-          element={<Detail fanLetter={fanLetter} setFanLetter={setFanLetter} />}
-        />
-      </Routes>
-    </BrowserRouter>
+    <FanLetterContext.Provider value={{ fanLetter, setFanLetter }}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail/:id" element={<Detail />} />
+        </Routes>
+      </BrowserRouter>
+    </FanLetterContext.Provider>
   );
 }
 

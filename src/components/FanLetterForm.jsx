@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
+import { FanLetterContext } from "context/FanLetterContext";
 
 const Form = styled.form`
   display: flex;
@@ -76,10 +77,12 @@ const FormBtn = styled.div`
   }
 `;
 
-function FanLetterForm({ fanLetter, setFanLetter }) {
+function FanLetterForm() {
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
   const [member, setMember] = useState("카리나");
+
+  const { fanLetter, setFanLetter } = useContext(FanLetterContext);
 
   // 팬레터 제출하기
   const submitFanLetter = (event) => {

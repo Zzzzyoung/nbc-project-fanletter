@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import defaultUserImg from "assets/defaultUserImg.png";
+import { MemberContext } from "context/MemberContext";
+import { FanLetterContext } from "context/FanLetterContext";
 
 const HomeBtn = styled.div`
   margin: 20px 20px;
@@ -97,11 +99,12 @@ const BtnWrapper = styled.footer`
   }
 `;
 
-function Detail({ fanLetter, setFanLetter }) {
+function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [editedTextArea, setEditedTextArea] = useState("");
+  const { fanLetter, setFanLetter } = useContext(FanLetterContext);
 
   const { avatar, nickname, createdAt, writedTo, content } = fanLetter.find(
     (item) => item.id === id
