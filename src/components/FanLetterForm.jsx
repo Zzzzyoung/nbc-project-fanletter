@@ -3,7 +3,6 @@ import { v4 as uuid } from "uuid";
 import styled from "styled-components";
 import { FanLetterContext } from "context/FanLetterContext";
 import Button from "./common/Button";
-import Modal from "react-modal";
 import CommonModal from "./common/CommonModal";
 
 const Form = styled.form`
@@ -83,9 +82,10 @@ function FanLetterForm() {
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
   }, [isModalOpen]);
 
-  // 모달창 열기
+  // 제출하기
+  // 제출 모달창 열기
   const openModal = () => setIsModalOpen(true);
-  // 모달창 닫기
+  // 제출 모달창 닫기
   const closeModal = () => setIsModalOpen(false);
 
   // 팬레터 제출하기
@@ -102,7 +102,7 @@ function FanLetterForm() {
     }
   };
 
-  // 모달창 확인
+  // 제출 모달창 확인
   const confirmModal = () => {
     const newFanLetter = {
       createdAt: new Date(),
@@ -120,7 +120,7 @@ function FanLetterForm() {
     closeModal();
   };
 
-  // 모달창 취소
+  // 제출 모달창 취소
   const cancelModal = () => closeModal();
 
   return (

@@ -5,8 +5,8 @@ import { FanLetterContext } from "context/FanLetterContext";
 import { formattedCreatedAt } from "components/common/Date";
 import UserImg from "components/common/UserImg";
 import Button from "components/common/Button";
-import Modal from "react-modal";
 import CommonModal from "components/common/CommonModal";
+import Modal from "react-modal";
 
 const HomeBtn = styled.div`
   margin: 20px 20px;
@@ -81,43 +81,43 @@ const BtnWrapper = styled.footer`
   margin-right: 40px;
 `;
 
-// const ModalStyles = {
-//   content: {
-//     height: "300px",
-//     width: "500px",
-//     margin: "auto",
-//   },
-// };
+const ModalStyles = {
+  content: {
+    height: "300px",
+    width: "500px",
+    margin: "auto",
+  },
+};
 
-// const ModalContent = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 40px;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   text-align: center;
+const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 
-//   & p {
-//     font-size: 18px;
-//   }
-// `;
+  & p {
+    font-size: 18px;
+  }
+`;
 
-// const ModalBtnWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   gap: 30px;
+const ModalBtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 
-//   & button {
-//     background-color: black;
-//     color: white;
-//     padding: 8px 12px;
-//     border-radius: 5px;
-//     font-size: 13px;
-//     cursor: pointer;
-//   }
-// `;
+  & button {
+    background-color: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+`;
 
 function Detail() {
   const { id } = useParams();
@@ -126,36 +126,16 @@ function Detail() {
   const [editedTextArea, setEditedTextArea] = useState("");
   const { fanLetter, setFanLetter } = useContext(FanLetterContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const { avatar, nickname, createdAt, writedTo, content } = fanLetter.find(
     (item) => item.id === id
   );
 
-  // 수정하기
-  const clickEditDoneBtn = () => {
-    if (!editedTextArea) {
-      return alert("수정된 부분이 없습니다.");
-    }
-
-    const checkEdit = window.confirm("수정하시겠습니까?");
-    if (checkEdit) {
-      const editedFanLetter = fanLetter.map((item) => {
-        if (item.id === id) {
-          return { ...item, content: editedTextArea };
-        } else {
-          return item;
-        }
-      });
-
-      setFanLetter(editedFanLetter);
-      setIsEditing(false);
-      setEditedTextArea("");
-    }
-  };
-
-  // 모달창 열기
+  // 삭제하기
+  // 삭제 모달창 열기
   const openModal = () => setIsModalOpen(true);
-  // 모달창 닫기
+  // 삭제 모달창 닫기
   const closeModal = () => setIsModalOpen(false);
 
   // 삭제하기
@@ -163,7 +143,7 @@ function Detail() {
     openModal();
   };
 
-  // 모달창 확인
+  // 삭제 모달창 확인
   const confirmModal = () => {
     const remainFanLetter = fanLetter.filter((item) => item.id !== id);
     navigate("/");
@@ -171,8 +151,43 @@ function Detail() {
     closeModal();
   };
 
-  // 모달창 취소
+  // 삭제 모달창 취소
   const cancelModal = () => closeModal();
+
+  // 수정하기
+  // 수정 모달창 열기
+  const openEditModal = () => setIsEditModalOpen(true);
+
+  // 수정 모달창 닫기
+  const closeEditModal = () => setIsEditModalOpen(false);
+
+  const clickEditDoneBtn = () => {
+    if (!editedTextArea) {
+      return alert("수정된 부분이 없습니다.");
+    }
+
+    openEditModal();
+  };
+
+  // 수정하기
+  // 수정 모달창 확인
+  const confirmEditModal = () => {
+    const editedFanLetter = fanLetter.map((item) => {
+      if (item.id === id) {
+        return { ...item, content: editedTextArea };
+      } else {
+        return item;
+      }
+    });
+
+    setFanLetter(editedFanLetter);
+    setIsEditing(false);
+    setEditedTextArea("");
+    closeEditModal();
+  };
+
+  // 수정 모달창 취소
+  const cancelEditModal = () => closeEditModal();
 
   return (
     <>
@@ -221,7 +236,6 @@ function Detail() {
               </BtnWrapper>
             </>
           )}
-          modalTitle
         </DetailFanLetterItemWrapper>
       </Container>
 
@@ -231,6 +245,16 @@ function Detail() {
         cancelModal={cancelModal}
         modalTitle="삭제하시겠습니까?"
       />
+
+      <Modal isOpen={isEditModalOpen} style={ModalStyles}>
+        <ModalContent>
+          <p>수정하시겠습니까?</p>
+          <ModalBtnWrapper>
+            <button onClick={confirmEditModal}>확인</button>
+            <button onClick={cancelEditModal}>취소</button>
+          </ModalBtnWrapper>
+        </ModalContent>
+      </Modal>
     </>
   );
 }
