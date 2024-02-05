@@ -2,8 +2,10 @@ import fakeData from "fakeData.json";
 
 // 팬레터 추가
 const ADD_FANLETTER = "fanLetter/ADD_FANLETTER";
+
 // 팬레터 삭제
 const DELETE_FANLETTER = "fanLetter/DELETE_FANLETTER";
+
 // 팬레터 수정
 const EDIT_FANLETTER = "fanLetter/EDIT_FANLETTER";
 

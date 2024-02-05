@@ -7,6 +7,6 @@ function Footer() {
 export default Footer;
 
 const Container = styled.footer`
-  margin: 60px auto 40px auto;
+  margin: 40px auto 50px auto;
   font-weight: 400;
 `;

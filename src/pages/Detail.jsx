@@ -5,7 +5,6 @@ import { formattedCreatedAt } from "components/common/Date";
 import UserImg from "components/common/UserImg";
 import Button from "components/common/Button";
 import CommonModal from "components/common/CommonModal";
-import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteFanLetter, editFanLetter } from "../redux/modules/fanLetter";
 
@@ -35,14 +34,14 @@ function Detail() {
   };
 
   // 삭제 모달창 확인
-  const confirmModal = () => {
+  const confirmDeleteModal = () => {
     dispatch(deleteFanLetter(id));
     navigate("/");
     closeModal();
   };
 
   // 삭제 모달창 취소
-  const cancelModal = () => closeModal();
+  const cancelDeleteModal = () => closeModal();
 
   // 수정하기
   // 수정 모달창 열기
@@ -119,20 +118,17 @@ function Detail() {
 
       <CommonModal
         isOpen={isModalOpen}
-        confirmModal={confirmModal}
-        cancelModal={cancelModal}
+        confirmModal={confirmDeleteModal}
+        cancelModal={cancelDeleteModal}
         modalTitle="삭제하시겠습니까?"
       />
 
-      <Modal isOpen={isEditModalOpen} style={ModalStyles}>
-        <ModalContent>
-          <p>수정하시겠습니까?</p>
-          <ModalBtnWrapper>
-            <Button btnName="확인" onClick={confirmEditModal} />
-            <Button btnName="취소" onClick={cancelEditModal} />
-          </ModalBtnWrapper>
-        </ModalContent>
-      </Modal>
+      <CommonModal
+        isOpen={isEditModalOpen}
+        confirmModal={confirmEditModal}
+        cancelModal={cancelEditModal}
+        modalTitle="수정하시겠습니까?"
+      />
     </Container>
   );
 }
@@ -227,34 +223,4 @@ const BtnWrapper = styled.footer`
   justify-content: flex-end;
   gap: 10px;
   margin-right: 40px;
-`;
-
-const ModalStyles = {
-  content: {
-    height: "300px",
-    width: "500px",
-    margin: "auto",
-    borderRadius: "10px",
-  },
-};
-
-const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-
-  & p {
-    font-size: 18px;
-  }
-`;
-
-const ModalBtnWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
 `;

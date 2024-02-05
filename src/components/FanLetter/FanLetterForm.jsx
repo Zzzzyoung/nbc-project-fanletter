@@ -41,7 +41,7 @@ function FanLetterForm() {
   };
 
   // 제출 모달창 확인
-  const confirmModal = () => {
+  const confirmSubmitModal = () => {
     const newFanLetter = {
       createdAt: new Date(),
       nickname,
@@ -59,7 +59,7 @@ function FanLetterForm() {
   };
 
   // 제출 모달창 취소
-  const cancelModal = () => closeModal();
+  const cancelSubmitModal = () => closeModal();
 
   return (
     <Form>
@@ -112,8 +112,8 @@ function FanLetterForm() {
 
       <CommonModal
         isOpen={isModalOpen}
-        confirmModal={confirmModal}
-        cancelModal={cancelModal}
+        confirmModal={confirmSubmitModal}
+        cancelModal={cancelSubmitModal}
         modalTitle="펜레터를 등록하시겠습니까?"
       />
     </Form>
