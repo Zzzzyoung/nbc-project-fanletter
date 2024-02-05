@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
+function Button({ btnname, onClick = () => {} }) {
+  return <StBtn onClick={onClick}>{btnname}</StBtn>;
+}
+
+export default Button;
+
 const StBtn = styled.button`
   background-color: black;
   color: white;
@@ -9,9 +15,3 @@ const StBtn = styled.button`
   font-size: 13px;
   cursor: pointer;
 `;
-
-function Button({ btnname, onClick = () => {} }) {
-  return <StBtn onClick={onClick}>{btnname}</StBtn>;
-}
-
-export default Button;

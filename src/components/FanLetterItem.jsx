@@ -4,6 +4,29 @@ import { useNavigate } from "react-router-dom";
 import { formattedCreatedAt } from "components/common/Date";
 import UserImg from "./common/UserImg";
 
+function FanLetterItem({ item }) {
+  const navigate = useNavigate();
+
+  return (
+    <FanLetterItemWrapper
+      onClick={() => {
+        navigate(`/detail/${item.id}`);
+      }}
+    >
+      <UserInfo>
+        <UserImg item={item.avatar} />
+        <UserText>
+          <p>{item.nickname}</p>
+          <time>{formattedCreatedAt(item.createdAt)}</time>
+        </UserText>
+      </UserInfo>
+      <Content>{item.content}</Content>
+    </FanLetterItemWrapper>
+  );
+}
+
+export default FanLetterItem;
+
 const FanLetterItemWrapper = styled.li`
   display: flex;
   flex-direction: column;
@@ -45,26 +68,3 @@ const Content = styled.p`
   text-overflow: ellipsis;
   font-size: 16px;
 `;
-
-function FanLetterItem({ item }) {
-  const navigate = useNavigate();
-
-  return (
-    <FanLetterItemWrapper
-      onClick={() => {
-        navigate(`/detail/${item.id}`);
-      }}
-    >
-      <UserInfo>
-        <UserImg item={item.avatar} />
-        <UserText>
-          <p>{item.nickname}</p>
-          <time>{formattedCreatedAt(item.createdAt)}</time>
-        </UserText>
-      </UserInfo>
-      <Content>{item.content}</Content>
-    </FanLetterItemWrapper>
-  );
-}
-
-export default FanLetterItem;

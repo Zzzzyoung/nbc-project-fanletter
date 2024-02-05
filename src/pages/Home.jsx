@@ -5,12 +5,6 @@ import Header from "components/Layout/Header";
 import MemberContextProvider from "context/MemberContext";
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 function Home() {
   return (
     <MemberContextProvider>
@@ -27,3 +21,9 @@ function Home() {
 }
 
 export default Home;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

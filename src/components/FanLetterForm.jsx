@@ -5,71 +5,6 @@ import { FanLetterContext } from "context/FanLetterContext";
 import Button from "./common/Button";
 import CommonModal from "./common/CommonModal";
 
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin: 30px;
-  padding: 30px 30px 25px 30px;
-  width: 600px;
-  background-color: yellow;
-  border-radius: 10px;
-`;
-
-const FormInput = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  & label {
-    width: 80px;
-  }
-
-  & input {
-    width: 100%;
-    height: 30px;
-    padding-left: 10px;
-  }
-`;
-
-const FormTextarea = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  & label {
-    width: 80px;
-  }
-
-  & textarea {
-    width: 100%;
-    height: 85px;
-    padding-top: 10px;
-    padding-left: 10px;
-    resize: none;
-  }
-`;
-
-const FormSelect = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  & label {
-    width: 65px;
-  }
-
-  & select {
-    width: 80px;
-    padding-left: 5px;
-  }
-`;
-
-const FormBtn = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
-
 function FanLetterForm() {
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
@@ -181,3 +116,68 @@ function FanLetterForm() {
 }
 
 export default FanLetterForm;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px;
+  padding: 30px 30px 25px 30px;
+  width: 600px;
+  background-color: yellow;
+  border-radius: 10px;
+`;
+
+const FormInput = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & label {
+    width: 80px;
+  }
+
+  & input {
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+  }
+`;
+
+const FormTextarea = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & label {
+    width: 80px;
+  }
+
+  & textarea {
+    width: 100%;
+    height: 85px;
+    padding-top: 10px;
+    padding-left: 10px;
+    resize: none;
+  }
+`;
+
+const FormSelect = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  & label {
+    width: 65px;
+  }
+
+  & select {
+    width: 80px;
+    padding-left: 5px;
+  }
+`;
+
+const FormBtn = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;

@@ -2,6 +2,25 @@ import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
 
+// react-modal을 위한 appElement 설정
+Modal.setAppElement("#root"); // 실제 root 요소의 ID로 변경해라
+
+function CommonModal({ isOpen, confirmModal, cancelModal, modalTitle }) {
+  return (
+    <Modal isOpen={isOpen} style={ModalStyles}>
+      <ModalContent>
+        <p>{modalTitle}</p>
+        <ModalBtnWrapper>
+          <button onClick={confirmModal}>확인</button>
+          <button onClick={cancelModal}>취소</button>
+        </ModalBtnWrapper>
+      </ModalContent>
+    </Modal>
+  );
+}
+
+export default CommonModal;
+
 const ModalStyles = {
   content: {
     height: "300px",
@@ -39,22 +58,3 @@ const ModalBtnWrapper = styled.div`
     cursor: pointer;
   }
 `;
-
-// react-modal을 위한 appElement 설정
-Modal.setAppElement("#root"); // 실제 root 요소의 ID로 변경해라
-
-function CommonModal({ isOpen, confirmModal, cancelModal, modalTitle }) {
-  return (
-    <Modal isOpen={isOpen} style={ModalStyles}>
-      <ModalContent>
-        <p>{modalTitle}</p>
-        <ModalBtnWrapper>
-          <button onClick={confirmModal}>확인</button>
-          <button onClick={cancelModal}>취소</button>
-        </ModalBtnWrapper>
-      </ModalContent>
-    </Modal>
-  );
-}
-
-export default CommonModal;

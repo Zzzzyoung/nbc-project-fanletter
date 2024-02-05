@@ -4,28 +4,6 @@ import styled from "styled-components";
 import { FanLetterContext } from "context/FanLetterContext";
 import { MemberContext } from "context/MemberContext";
 
-const FanLetterListWrapper = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 30px;
-  width: 600px;
-  background-color: lightgreen;
-  border-radius: 10px;
-`;
-
-const LetterNone = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  & p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
-`;
-
 function FanLetterList() {
   const { fanLetter } = useContext(FanLetterContext);
   const { selectedMember } = useContext(MemberContext);
@@ -51,3 +29,25 @@ function FanLetterList() {
 }
 
 export default FanLetterList;
+
+const FanLetterListWrapper = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  width: 600px;
+  background-color: lightgreen;
+  border-radius: 10px;
+`;
+
+const LetterNone = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+`;

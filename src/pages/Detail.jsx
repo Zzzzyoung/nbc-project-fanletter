@@ -8,117 +8,6 @@ import Button from "components/common/Button";
 import CommonModal from "components/common/CommonModal";
 import Modal from "react-modal";
 
-const HomeBtn = styled.div`
-  margin: 20px 20px;
-`;
-
-const Container = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const DetailFanLetterItemWrapper = styled.section`
-  background-color: purple;
-  color: white;
-  height: 500px;
-  width: 800px;
-`;
-
-const UserHeader = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 35px 30px;
-`;
-
-const UserInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  font-size: 32px;
-  font-weight: 600;
-
-  & p {
-    width: 400px;
-  }
-`;
-
-const UserMain = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 20px;
-  margin: 40px 40px 20px 40px;
-`;
-
-const ToWhom = styled.p`
-  font-size: 23px;
-  font-weight: 500;
-`;
-
-const EditContent = styled.textarea`
-  padding: 20px 30px;
-  height: 202px;
-  background-color: blue;
-  line-height: 2rem;
-  color: white;
-  font-size: 20px;
-  resize: none;
-`;
-
-const UserContent = styled.p`
-  padding: 20px 30px;
-  height: 200px;
-  background-color: blue;
-  line-height: 2rem;
-`;
-
-const BtnWrapper = styled.footer`
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-right: 40px;
-`;
-
-const ModalStyles = {
-  content: {
-    height: "300px",
-    width: "500px",
-    margin: "auto",
-  },
-};
-
-const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-
-  & p {
-    font-size: 18px;
-  }
-`;
-
-const ModalBtnWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-
-  & button {
-    background-color: black;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-  }
-`;
-
 function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -260,3 +149,114 @@ function Detail() {
 }
 
 export default Detail;
+
+const HomeBtn = styled.div`
+  margin: 20px 20px;
+`;
+
+const Container = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DetailFanLetterItemWrapper = styled.section`
+  background-color: purple;
+  color: white;
+  height: 500px;
+  width: 800px;
+`;
+
+const UserHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 35px 30px;
+`;
+
+const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 32px;
+  font-weight: 600;
+
+  & p {
+    width: 400px;
+  }
+`;
+
+const UserMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  margin: 40px 40px 20px 40px;
+`;
+
+const ToWhom = styled.p`
+  font-size: 23px;
+  font-weight: 500;
+`;
+
+const EditContent = styled.textarea`
+  padding: 20px 30px;
+  height: 202px;
+  background-color: blue;
+  line-height: 2rem;
+  color: white;
+  font-size: 20px;
+  resize: none;
+`;
+
+const UserContent = styled.p`
+  padding: 20px 30px;
+  height: 200px;
+  background-color: blue;
+  line-height: 2rem;
+`;
+
+const BtnWrapper = styled.footer`
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 40px;
+`;
+
+const ModalStyles = {
+  content: {
+    height: "300px",
+    width: "500px",
+    margin: "auto",
+  },
+};
+
+const ModalContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  & p {
+    font-size: 18px;
+  }
+`;
+
+const ModalBtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  & button {
+    background-color: black;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+`;

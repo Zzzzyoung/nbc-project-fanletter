@@ -2,6 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import defaultUserImg from "assets/defaultUserImg.png";
 
+function UserImg({ item, size }) {
+  return (
+    <UserFigure size={size}>
+      <img src={item ?? defaultUserImg} alt="유저이미지" />
+    </UserFigure>
+  );
+}
+
+export default UserImg;
+
 const UserFigure = styled.figure`
   width: ${(props) => (props.size === "large" ? "100px" : "50px")};
   height: ${(props) => (props.size === "large" ? "100px" : "50px")};
@@ -16,13 +26,3 @@ const UserFigure = styled.figure`
     border-radius: 50%;
   }
 `;
-
-function UserImg({ item, size }) {
-  return (
-    <UserFigure size={size}>
-      <img src={item ?? defaultUserImg} alt="유저이미지" />
-    </UserFigure>
-  );
-}
-
-export default UserImg;
