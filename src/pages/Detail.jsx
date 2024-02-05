@@ -128,8 +128,8 @@ function Detail() {
         <ModalContent>
           <p>수정하시겠습니까?</p>
           <ModalBtnWrapper>
-            <button onClick={confirmEditModal}>확인</button>
-            <button onClick={cancelEditModal}>취소</button>
+            <Button btnName="확인" onClick={confirmEditModal} />
+            <Button btnName="취소" onClick={cancelEditModal} />
           </ModalBtnWrapper>
         </ModalContent>
       </Modal>
@@ -234,6 +234,7 @@ const ModalStyles = {
     height: "300px",
     width: "500px",
     margin: "auto",
+    borderRadius: "10px",
   },
 };
 
@@ -256,13 +257,4 @@ const ModalBtnWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 30px;
-
-  & button {
-    background-color: black;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-  }
 `;

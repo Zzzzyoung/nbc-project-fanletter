@@ -1,5 +1,6 @@
 import Modal from "react-modal";
 import styled from "styled-components";
+import Button from "./Button";
 
 // react-modal을 위한 appElement 설정
 Modal.setAppElement("#root"); // 실제 root 요소의 ID로 변경해라
@@ -10,8 +11,8 @@ function CommonModal({ isOpen, confirmModal, cancelModal, modalTitle }) {
       <ModalContent>
         <p>{modalTitle}</p>
         <ModalBtnWrapper>
-          <button onClick={confirmModal}>확인</button>
-          <button onClick={cancelModal}>취소</button>
+          <Button btnName="확인" onClick={confirmModal} />
+          <Button btnName="취소" onClick={cancelModal} />
         </ModalBtnWrapper>
       </ModalContent>
     </Modal>
@@ -48,18 +49,4 @@ const ModalBtnWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 30px;
-
-  & button {
-    background-color: #4b3c57;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.23);
-      color: black;
-    }
-  }
 `;
