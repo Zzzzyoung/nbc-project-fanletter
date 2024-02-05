@@ -5,22 +5,23 @@ import { formattedCreatedAt } from "components/common/Date";
 import UserImg from "./common/UserImg";
 
 function FanLetterItem({ item }) {
+  const { id, avatar, nickname, createdAt, content } = item;
   const navigate = useNavigate();
 
   return (
     <FanLetterItemWrapper
       onClick={() => {
-        navigate(`/detail/${item.id}`);
+        navigate(`/detail/${id}`);
       }}
     >
       <UserInfo>
-        <UserImg item={item.avatar} />
+        <UserImg item={avatar} />
         <UserText>
-          <p>{item.nickname}</p>
-          <time>{formattedCreatedAt(item.createdAt)}</time>
+          <p>{nickname}</p>
+          <time>{formattedCreatedAt(createdAt)}</time>
         </UserText>
       </UserInfo>
-      <Content>{item.content}</Content>
+      <Content>{content}</Content>
     </FanLetterItemWrapper>
   );
 }

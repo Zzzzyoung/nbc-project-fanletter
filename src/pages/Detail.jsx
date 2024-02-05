@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { FanLetterContext } from "context/FanLetterContext";
 import { formattedCreatedAt } from "components/common/Date";
@@ -80,14 +80,12 @@ function Detail() {
 
   return (
     <>
-      <HomeBtn>
-        <Button
-          btnname="홈으로"
-          onClick={() => {
-            navigate("/");
-          }}
-        />
-      </HomeBtn>
+      <Link to="/">
+        <HomeBtn>
+          <Button btnName="홈으로" />
+        </HomeBtn>
+      </Link>
+
       <Container>
         <DetailFanLetterItemWrapper>
           <UserHeader>
@@ -109,8 +107,8 @@ function Detail() {
                 />
               </UserMain>
               <BtnWrapper>
-                <Button btnname="수정완료" onClick={clickEditDoneBtn} />
-                <Button btnname="취소" onClick={() => setIsEditing(false)} />
+                <Button btnName="수정완료" onClick={clickEditDoneBtn} />
+                <Button btnName="취소" onClick={() => setIsEditing(false)} />
               </BtnWrapper>
             </>
           ) : (
@@ -120,8 +118,8 @@ function Detail() {
                 <UserContent>{content}</UserContent>
               </UserMain>
               <BtnWrapper>
-                <Button btnname="수정" onClick={() => setIsEditing(true)} />
-                <Button btnname="삭제" onClick={clickDeleteBtn} />
+                <Button btnName="수정" onClick={() => setIsEditing(true)} />
+                <Button btnName="삭제" onClick={clickDeleteBtn} />
               </BtnWrapper>
             </>
           )}

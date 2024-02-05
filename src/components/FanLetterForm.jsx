@@ -102,7 +102,7 @@ function FanLetterForm() {
         </div>
       </FormSelect>
       <FormBtn>
-        <Button btnname="펜레터 등록" onClick={submitFanLetter} />
+        <Button btnName="펜레터 등록" onClick={submitFanLetter} />
       </FormBtn>
 
       <CommonModal

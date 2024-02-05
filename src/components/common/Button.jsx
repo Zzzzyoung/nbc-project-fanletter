@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-function Button({ btnname, onClick = () => {} }) {
-  return <StBtn onClick={onClick}>{btnname}</StBtn>;
+function Button({ btnName, onClick = () => {} }) {
+  return <StBtn onClick={onClick}>{btnName}</StBtn>;
 }
 
 export default Button;

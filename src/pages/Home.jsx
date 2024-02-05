@@ -10,10 +10,10 @@ function Home() {
     <MemberContextProvider>
       <Container>
         <Header />
-
-        <FanLetterForm />
-        <FanLetterList />
-
+        <HomeMain>
+          <FanLetterForm />
+          <FanLetterList />
+        </HomeMain>
         <Footer />
       </Container>
     </MemberContextProvider>
@@ -25,5 +25,12 @@ export default Home;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+`;
+
+const HomeMain = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 `;
