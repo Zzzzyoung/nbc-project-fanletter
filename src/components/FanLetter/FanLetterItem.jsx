@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { formattedCreatedAt } from "components/common/Date";
-import UserImg from "./common/UserImg";
+import UserImg from "../common/UserImg";
 
 function FanLetterItem({ item }) {
   const { id, avatar, nickname, createdAt, content } = item;

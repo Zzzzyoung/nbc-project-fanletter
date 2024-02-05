@@ -1,4 +1,4 @@
-import MemberTab from "../MemberTab";
+import MemberTab from "../FanLetter/MemberTab";
 import styled from "styled-components";
 
 const Container = styled.header`

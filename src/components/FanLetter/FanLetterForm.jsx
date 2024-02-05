@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
-import Button from "./common/Button";
-import CommonModal from "./common/CommonModal";
+import Button from "../common/Button";
+import CommonModal from "../common/CommonModal";
 import { useDispatch } from "react-redux";
-import { addFanLetter } from "../redux/modules/fanLetter";
+import { addFanLetter } from "../../redux/modules/fanLetter";
 
 function FanLetterForm() {
   const [nickname, setNickname] = useState("");

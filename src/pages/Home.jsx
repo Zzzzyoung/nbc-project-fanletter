@@ -1,5 +1,5 @@
-import FanLetterForm from "components/FanLetterForm";
-import FanLetterList from "components/FanLetterList";
+import FanLetterForm from "components/FanLetter/FanLetterForm";
+import FanLetterList from "components/FanLetter/FanLetterList";
 import Footer from "components/Layout/Footer";
 import Header from "components/Layout/Header";
 import styled from "styled-components";
