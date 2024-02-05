@@ -5,9 +5,9 @@
 ## 👩‍💻 프로젝트 소개
 리액트 hook들과 context API, Redux를 이용해 에스파 멤버들에게 팬레터를 남길 수 있는 사이트 입니다.
 
-![image](https://github.com/Zzzzyoung/nbc-project-fanletter/assets/154482077/4a8c2a42-cd20-46b2-aa89-7c7e46279f3f)
+![image](https://github.com/Zzzzyoung/nbc-project-fanletter/assets/154482077/80b83ff9-a6f3-418e-8170-dee7ca4f2140)
 
-![image](https://github.com/Zzzzyoung/nbc-project-fanletter/assets/154482077/3cf2ef39-f412-4852-a5e9-a84c161f93d9)
+![image](https://github.com/Zzzzyoung/nbc-project-fanletter/assets/154482077/097bfae2-db78-4006-80b5-020fe9e9525f)
 
 
 ## 🖇️ 배포 링크
