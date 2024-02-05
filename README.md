@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# 사이트명
+에스파 팬레터
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 👩‍💻 프로젝트 소개
+리액트 hook인 useState를 사용하여 todolist를 작성할 수 있는 사이트 입니다.
 
-In the project directory, you can run:
 
-### `npm start`
+## ⏲️ 개발 기간
+- 2024.02.01 ~ 02.05
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💻 개발환경
+- <img alt="React" src ="https://img.shields.io/badge/React-444444.svg?&style=for-the-badge&logo=React&logoColor=react"/> <img alt="JavaScript" src ="https://img.shields.io/badge/JavaScriipt-F7DF1E.svg?&style=for-the-badge&logo=JavaScript&logoColor=black"/> <img alt="Html" src ="https://img.shields.io/badge/HTML-E34F26.svg?&style=for-the-badge&logo=HTML5&logoColor=white"/> <img alt="Css" src ="https://img.shields.io/badge/CSS-1572B6.svg?&style=for-the-badge&logo=CSS3&logoColor=white"/>
+- Github
+- VScode
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📌 주요 기능
+- 팬레터 CRUD 구현 (작성, 조회, 수정, 삭제)
+- 아티스트별 게시물 조회 기능 구현 (Home - Read)
+- 원하는 아티스트에게 팬레터 등록 구현 (Home - Create)
+- 팬레터 상세 화면 구현 (Detail - Read)
+- 상세화면에서 팬레터 내용 수정 구현 (Detail - Update)
+- 상세화면에서 팬레터 삭제 구현 (Detail - Delete)
+- 팬레터 작성, 수정, 삭제 시 유효성 검사 가
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ✔️ 필수 요구 사항
+- styled-components 를 이용하여 스타일링
+    - 인라인 스타일링이나 일반 css 파일을 이용한 스타일링 방식 지양
+    - 모든 태그를 styled-components 화 할 필요는 없으나 스타일링이 들어가는 경우는 styled-components 화 할 것
+- 전역 스타일에 reset.css 를 적용해주고 box-sizing이 border-box가 되도록 설정
+- styled-components에 props를 넘김으로 인한 조건부 스타일링 적용
+    - 아티스트 선택탭에 적용
+- 팬레터 등록 시 id는 uuid 라이브러리를 이용
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✔️ 선택 요구 사항
+- 모달 구현
+    - window.alert 이나 window.conform 대신 직접 구현한 모달을 적용
+- 만능 버튼 구현(공통 컴포넌트 버튼)
+    - 하나의 버튼 컴포넌트를 홈화면과 상세화면 모두에서 적용
+    - props 로 버튼 크기나 버튼 텍스트 등을 받
+     
 
-### `npm run eject`
+## Create React App 만들기 시작 위한 방법
+### 프로젝트 생성하기
+yarn create react-app '프로젝트 명'
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 프로젝트 실행하기
+#### 프로젝트 폴더로 이동하기
+cd '프로젝트 명'
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 프로젝트 실행하기
+yarn start
