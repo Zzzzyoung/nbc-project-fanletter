@@ -93,9 +93,9 @@ function FanLetterForm() {
     event.preventDefault();
 
     // 유효성 검사
-    if (!nickname) {
+    if (!nickname.trim()) {
       return alert("닉네임을 입력하세요.");
-    } else if (nickname && !content) {
+    } else if (nickname.trim() && !content.trim()) {
       return alert("내용을 입력하세요.");
     } else {
       openModal();
@@ -129,6 +129,7 @@ function FanLetterForm() {
         <label>닉네임 :&nbsp;</label>
         <input
           type="text"
+          name="nickname"
           placeholder="최대 20글자까지 작성할 수 있습니다."
           maxLength={20}
           autoFocus
@@ -141,6 +142,7 @@ function FanLetterForm() {
       <FormTextarea>
         <label>내용 :&nbsp;</label>
         <textarea
+          name="content"
           placeholder="최대 100글자까지 작성할 수 있습니다."
           maxLength={100}
           value={content}
@@ -153,13 +155,14 @@ function FanLetterForm() {
         <label>TO.</label>
         <div>
           <select
+            name="writedTo"
             value={member}
             onChange={(event) => setMember(event.target.value)}
           >
-            <option>카리나</option>
-            <option>지젤</option>
-            <option>윈터</option>
-            <option>닝닝</option>
+            <option value="카리나">카리나</option>
+            <option value="지젤">지젤</option>
+            <option value="윈터">윈터</option>
+            <option value="닝닝">닝닝</option>
           </select>
         </div>
       </FormSelect>

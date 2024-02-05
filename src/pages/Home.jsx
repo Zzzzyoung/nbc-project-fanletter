@@ -16,8 +16,10 @@ function Home() {
     <MemberContextProvider>
       <Container>
         <Header />
+
         <FanLetterForm />
         <FanLetterList />
+
         <Footer />
       </Container>
     </MemberContextProvider>

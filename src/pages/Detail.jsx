@@ -161,6 +161,7 @@ function Detail() {
   // 수정 모달창 닫기
   const closeEditModal = () => setIsEditModalOpen(false);
 
+  // 수정 완료하기
   const clickEditDoneBtn = () => {
     if (!editedTextArea) {
       return alert("수정된 부분이 없습니다.");
@@ -169,7 +170,6 @@ function Detail() {
     openEditModal();
   };
 
-  // 수정하기
   // 수정 모달창 확인
   const confirmEditModal = () => {
     const editedFanLetter = fanLetter.map((item) => {
