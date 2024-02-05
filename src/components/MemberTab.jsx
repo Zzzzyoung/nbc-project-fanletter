@@ -49,7 +49,7 @@ const MemberTabBtn = styled.button`
   width: 100px;
   font-size: 18px;
   border-radius: 5px;
-  background-color: ${(props) => (props.selected ? "black" : "white")};
-  color: ${(props) => (props.selected ? "white" : "black")};
+  background-color: ${({ selected }) => (selected ? "black" : "white")};
+  color: ${({ selected }) => (selected ? "white" : "black")};
   cursor: pointer;
 `;

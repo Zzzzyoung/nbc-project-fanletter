@@ -13,8 +13,8 @@ function UserImg({ item, size }) {
 export default UserImg;
 
 const UserFigure = styled.figure`
-  width: ${(props) => (props.size === "large" ? "100px" : "50px")};
-  height: ${(props) => (props.size === "large" ? "100px" : "50px")};
+  width: ${({ size }) => (size === "large" ? "100px" : "50px")};
+  height: ${({ size }) => (size === "large" ? "100px" : "50px")};
 
   border-radius: 50%;
   overflow: hidden;
