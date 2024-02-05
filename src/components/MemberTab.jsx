@@ -24,7 +24,7 @@ function MemberTab() {
             type="button"
             key={id}
             onClick={() => clickMemberTab(name)}
-            selected={selectedMember === name}
+            $selected={selectedMember === name}
           >
             {name}
           </MemberTabBtn>
@@ -49,7 +49,7 @@ const MemberTabBtn = styled.button`
   width: 100px;
   font-size: 18px;
   border-radius: 5px;
-  background-color: ${({ selected }) => (selected ? "black" : "white")};
-  color: ${({ selected }) => (selected ? "white" : "black")};
+  background-color: ${({ $selected }) => ($selected ? "black" : "white")};
+  color: ${({ $selected }) => ($selected ? "white" : "black")};
   cursor: pointer;
 `;
