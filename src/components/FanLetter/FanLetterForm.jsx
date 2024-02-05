@@ -181,6 +181,7 @@ const FormSelect = styled.div`
     width: 150px;
     height: 28px;
     padding-left: 5px;
+    cursor: pointer;
   }
 `;
 
