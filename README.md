@@ -7,6 +7,8 @@
 
 ![image](https://github.com/Zzzzyoung/nbc-project-fanletter/assets/154482077/3a799470-76c5-43db-89a1-1a1142831ddc)
 
+![image](https://github.com/Zzzzyoung/nbc-project-fanletter/assets/154482077/3cf2ef39-f412-4852-a5e9-a84c161f93d9)
+
 
 ## 🖇️ 배포 링크
 https://nbc-project-fanletter.vercel.app/
