@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import fakeData from "fakeData.json";
+import fakeData from "../assets/fakeData.json";
 
 export const FanLetterContext = createContext(null);
 
