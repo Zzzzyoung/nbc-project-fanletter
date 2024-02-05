@@ -22,9 +22,10 @@ export default CommonModal;
 
 const ModalStyles = {
   content: {
-    height: "300px",
-    width: "500px",
+    height: "250px",
+    width: "470px",
     margin: "auto",
+    borderRadius: "10px",
   },
 };
 
@@ -49,11 +50,16 @@ const ModalBtnWrapper = styled.div`
   gap: 30px;
 
   & button {
-    background-color: black;
+    background-color: #4b3c57;
     color: white;
     padding: 8px 12px;
     border-radius: 5px;
     font-size: 13px;
     cursor: pointer;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.23);
+      color: black;
+    }
   }
 `;

@@ -72,52 +72,50 @@ function Detail() {
   const cancelEditModal = () => closeEditModal();
 
   return (
-    <>
+    <Container>
       <Link to="/">
         <HomeBtn>
           <Button btnName="홈으로" />
         </HomeBtn>
       </Link>
 
-      <Container>
-        <DetailFanLetterItemWrapper>
-          <UserHeader>
-            <UserInfo>
-              <UserImg item={avatar} size="large" />
-              <p>{nickname}</p>
-            </UserInfo>
-            <time>{formattedCreatedAt(createdAt)}</time>
-          </UserHeader>
-          {isEditing ? (
-            <>
-              <UserMain>
-                <ToWhom>To. {writedTo}</ToWhom>
-                <EditContent
-                  defaultValue={content}
-                  maxLength={100}
-                  autoFocus
-                  onChange={(event) => setEditedTextArea(event.target.value)}
-                />
-              </UserMain>
-              <BtnWrapper>
-                <Button btnName="수정완료" onClick={clickEditDoneBtn} />
-                <Button btnName="취소" onClick={() => setIsEditing(false)} />
-              </BtnWrapper>
-            </>
-          ) : (
-            <>
-              <UserMain>
-                <ToWhom>To. {writedTo}</ToWhom>
-                <UserContent>{content}</UserContent>
-              </UserMain>
-              <BtnWrapper>
-                <Button btnName="수정" onClick={() => setIsEditing(true)} />
-                <Button btnName="삭제" onClick={clickDeleteBtn} />
-              </BtnWrapper>
-            </>
-          )}
-        </DetailFanLetterItemWrapper>
-      </Container>
+      <DetailFanLetterItemWrapper>
+        <UserHeader>
+          <UserInfo>
+            <UserImg item={avatar} size="large" />
+            <p>{nickname}</p>
+          </UserInfo>
+          <time>{formattedCreatedAt(createdAt)}</time>
+        </UserHeader>
+        {isEditing ? (
+          <>
+            <UserMain>
+              <ToWhom>To. {writedTo}</ToWhom>
+              <EditContent
+                defaultValue={content}
+                maxLength={100}
+                autoFocus
+                onChange={(event) => setEditedTextArea(event.target.value)}
+              />
+            </UserMain>
+            <BtnWrapper>
+              <Button btnName="수정완료" onClick={clickEditDoneBtn} />
+              <Button btnName="취소" onClick={() => setIsEditing(false)} />
+            </BtnWrapper>
+          </>
+        ) : (
+          <>
+            <UserMain>
+              <ToWhom>To. {writedTo}</ToWhom>
+              <UserContent>{content}</UserContent>
+            </UserMain>
+            <BtnWrapper>
+              <Button btnName="수정" onClick={() => setIsEditing(true)} />
+              <Button btnName="삭제" onClick={clickDeleteBtn} />
+            </BtnWrapper>
+          </>
+        )}
+      </DetailFanLetterItemWrapper>
 
       <CommonModal
         isOpen={isModalOpen}
@@ -135,27 +133,41 @@ function Detail() {
           </ModalBtnWrapper>
         </ModalContent>
       </Modal>
-    </>
+    </Container>
   );
 }
 
 export default Detail;
 
-const HomeBtn = styled.div`
-  margin: 20px 20px;
-`;
-
-const Container = styled.section`
+const Container = styled.div`
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: linear-gradient(
+    to right,
+    #aee1f9,
+    #b3c8ee,
+    #b9afe5,
+    #bd96da
+  );
+`;
+
+const HomeBtn = styled.div`
+  position: absolute;
+  top: 50px;
+  left: 70px;
 `;
 
 const DetailFanLetterItemWrapper = styled.section`
-  background-color: purple;
-  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: black;
   height: 500px;
   width: 800px;
+  margin-top: 10px;
 `;
 
 const UserHeader = styled.header`
@@ -193,9 +205,10 @@ const ToWhom = styled.p`
 const EditContent = styled.textarea`
   padding: 20px 30px;
   height: 202px;
-  background-color: blue;
+  background-color: rgba(255, 255, 255, 0.23);
+  border: 1px solid white;
+  border-radius: 10px;
   line-height: 2rem;
-  color: white;
   font-size: 20px;
   resize: none;
 `;
@@ -203,7 +216,9 @@ const EditContent = styled.textarea`
 const UserContent = styled.p`
   padding: 20px 30px;
   height: 200px;
-  background-color: blue;
+  background-color: rgba(255, 255, 255, 0.23);
+  border: 1px solid white;
+  border-radius: 10px;
   line-height: 2rem;
 `;
 

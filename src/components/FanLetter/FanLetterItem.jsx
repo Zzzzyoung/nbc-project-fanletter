@@ -32,7 +32,7 @@ const FanLetterItemWrapper = styled.li`
   flex-direction: column;
   gap: 15px;
   padding: 20px 50px;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 10px;
   cursor: pointer;
 
@@ -55,12 +55,12 @@ const UserText = styled.div`
 
   & p {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
   }
 `;
 
 const Content = styled.p`
-  background-color: green;
+  background-color: rgba(255, 255, 255, 0.23);
   border-radius: 10px;
   padding: 10px;
   white-space: nowrap;

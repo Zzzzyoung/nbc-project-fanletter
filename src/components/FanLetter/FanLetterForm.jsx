@@ -9,7 +9,7 @@ import { addFanLetter } from "../../redux/modules/fanLetter";
 function FanLetterForm() {
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
-  const [member, setMember] = useState("카리나");
+  const [member, setMember] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -33,6 +33,8 @@ function FanLetterForm() {
       return alert("닉네임을 입력하세요.");
     } else if (nickname.trim() && !content.trim()) {
       return alert("내용을 입력하세요.");
+    } else if (!member) {
+      return alert("멤버를 입력하세요.");
     } else {
       openModal();
     }
@@ -91,10 +93,12 @@ function FanLetterForm() {
         <label>TO.</label>
         <div>
           <select
+            id="member"
             name="writedTo"
             value={member}
             onChange={(event) => setMember(event.target.value)}
           >
+            <option value={""}>멤버를 선택하세요.</option>
             <option value="카리나">카리나</option>
             <option value="지젤">지젤</option>
             <option value="윈터">윈터</option>
@@ -125,7 +129,8 @@ const Form = styled.form`
   margin: 30px;
   padding: 30px 30px 25px 30px;
   width: 600px;
-  background-color: yellow;
+  background-color: transparent;
+  border: 1px solid white;
   border-radius: 10px;
 `;
 
@@ -173,7 +178,8 @@ const FormSelect = styled.div`
   }
 
   & select {
-    width: 80px;
+    width: 150px;
+    height: 28px;
     padding-left: 5px;
   }
 `;

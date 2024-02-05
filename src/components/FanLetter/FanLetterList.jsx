@@ -33,8 +33,8 @@ const FanLetterListWrapper = styled.ul`
   flex-direction: column;
   gap: 30px;
   padding: 30px;
-  width: 600px;
-  background-color: lightgreen;
+  width: 660px;
+  background-color: transparent;
   border-radius: 10px;
 `;
 

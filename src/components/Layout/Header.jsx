@@ -1,5 +1,19 @@
 import MemberTab from "../FanLetter/MemberTab";
 import styled from "styled-components";
+import logo from "assets/logo.png";
+
+function Header() {
+  return (
+    <Container>
+      <Title>
+        <img src={logo} alt="logo" />
+      </Title>
+      <MemberTab />
+    </Container>
+  );
+}
+
+export default Header;
 
 const Container = styled.header`
   display: flex;
@@ -8,22 +22,24 @@ const Container = styled.header`
   justify-content: center;
   width: 100%;
   height: 300px;
-  background-color: pink;
-`;
-
-const Title = styled.h1`
-  font-size: 48px;
-  font-weight: 900;
-  margin: 60px auto 50px auto;
-`;
-
-function Header() {
-  return (
-    <Container>
-      <Title>에스파 팬레터함</Title>
-      <MemberTab />
-    </Container>
+  background-image: linear-gradient(
+    to right,
+    #aee1f9,
+    #b3c8ee,
+    #b9afe5,
+    #bd96da
   );
-}
+`;
 
-export default Header;
+const Title = styled.figure`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 130px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;

@@ -7,10 +7,15 @@ function Button({ btnName, onClick = () => {} }) {
 export default Button;
 
 const StBtn = styled.button`
-  background-color: black;
+  background-color: #4b3c57;
   color: white;
   padding: 8px 12px;
   border-radius: 5px;
   font-size: 13px;
   cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.23);
+    color: black;
+  }
 `;
