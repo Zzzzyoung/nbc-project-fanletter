@@ -170,7 +170,7 @@ const UserHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 35px 30px;
+  margin: 30px 30px;
 `;
 
 const UserInfo = styled.div`
@@ -222,5 +222,6 @@ const BtnWrapper = styled.footer`
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  margin-top: 25px;
   margin-right: 40px;
 `;

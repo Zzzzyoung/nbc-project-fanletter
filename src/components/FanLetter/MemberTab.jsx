@@ -40,7 +40,7 @@ export default MemberTab;
 const MemberTabWrapper = styled.nav`
   display: flex;
   gap: 15px;
-  padding: 20px;
+  padding: 20px 30px;
   background-color: transparent;
   border: 1px solid white;
   border-radius: 10px;
@@ -48,8 +48,8 @@ const MemberTabWrapper = styled.nav`
 
 const MemberTabBtn = styled.button`
   height: 40px;
-  width: 100px;
-  font-size: 18px;
+  width: 90px;
+  font-size: 17px;
   border-radius: 5px;
   background-color: ${({ $selected }) =>
     $selected ? "#4b3c57" : "rgba(255, 255, 255, 0.23)"};
