@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
 import FanLetterItem from "./FanLetterItem";
 import styled from "styled-components";
-import { FanLetterContext } from "context/FanLetterContext";
-import { MemberContext } from "context/MemberContext";
+import { useSelector } from "react-redux";
 
 function FanLetterList() {
-  const { fanLetter } = useContext(FanLetterContext);
-  const { selectedMember } = useContext(MemberContext);
+  const selectedMember = useSelector((state) => state.member);
+  const fanLetter = useSelector((state) => state.fanLetter);
 
   const filteredFanLetterItem = fanLetter.filter((item) => {
     return item.writedTo === selectedMember;

@@ -2,21 +2,18 @@ import FanLetterForm from "components/FanLetterForm";
 import FanLetterList from "components/FanLetterList";
 import Footer from "components/Layout/Footer";
 import Header from "components/Layout/Header";
-import MemberContextProvider from "context/MemberContext";
 import styled from "styled-components";
 
 function Home() {
   return (
-    <MemberContextProvider>
-      <Container>
-        <Header />
-        <HomeMain>
-          <FanLetterForm />
-          <FanLetterList />
-        </HomeMain>
-        <Footer />
-      </Container>
-    </MemberContextProvider>
+    <Container>
+      <Header />
+      <HomeMain>
+        <FanLetterForm />
+        <FanLetterList />
+      </HomeMain>
+      <Footer />
+    </Container>
   );
 }
 

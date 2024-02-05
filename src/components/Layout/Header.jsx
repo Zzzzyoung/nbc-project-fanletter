@@ -1,4 +1,3 @@
-import React from "react";
 import MemberTab from "../MemberTab";
 import styled from "styled-components";
 

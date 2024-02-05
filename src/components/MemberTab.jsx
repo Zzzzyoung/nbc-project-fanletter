@@ -1,6 +1,6 @@
-import { MemberContext } from "context/MemberContext";
-import React, { useContext } from "react";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { selectMember } from "../redux/modules/member";
 
 const aespa = [
   { id: 1, name: "카리나" },
@@ -10,10 +10,11 @@ const aespa = [
 ];
 
 function MemberTab() {
-  const { selectedMember, setSelectedMember } = useContext(MemberContext);
+  const selectedMember = useSelector((state) => state.member);
+  const dispatch = useDispatch();
 
   const clickMemberTab = (name) => {
-    setSelectedMember(name);
+    dispatch(selectMember(name));
   };
 
   return (

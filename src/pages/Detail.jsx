@@ -1,21 +1,23 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { FanLetterContext } from "context/FanLetterContext";
 import { formattedCreatedAt } from "components/common/Date";
 import UserImg from "components/common/UserImg";
 import Button from "components/common/Button";
 import CommonModal from "components/common/CommonModal";
 import Modal from "react-modal";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteFanLetter, editFanLetter } from "../redux/modules/fanLetter";
 
 function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [editedTextArea, setEditedTextArea] = useState("");
-  const { fanLetter, setFanLetter } = useContext(FanLetterContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const fanLetter = useSelector((state) => state.fanLetter);
+  const dispatch = useDispatch();
 
   const { avatar, nickname, createdAt, writedTo, content } = fanLetter.find(
     (item) => item.id === id
@@ -34,9 +36,8 @@ function Detail() {
 
   // 삭제 모달창 확인
   const confirmModal = () => {
-    const remainFanLetter = fanLetter.filter((item) => item.id !== id);
+    dispatch(deleteFanLetter(id));
     navigate("/");
-    setFanLetter(remainFanLetter);
     closeModal();
   };
 
@@ -61,15 +62,7 @@ function Detail() {
 
   // 수정 모달창 확인
   const confirmEditModal = () => {
-    const editedFanLetter = fanLetter.map((item) => {
-      if (item.id === id) {
-        return { ...item, content: editedTextArea };
-      } else {
-        return item;
-      }
-    });
-
-    setFanLetter(editedFanLetter);
+    dispatch(editFanLetter({ id, editedTextArea }));
     setIsEditing(false);
     setEditedTextArea("");
     closeEditModal();

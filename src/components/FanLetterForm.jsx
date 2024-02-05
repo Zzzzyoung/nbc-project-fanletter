@@ -1,16 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import styled from "styled-components";
-import { FanLetterContext } from "context/FanLetterContext";
 import Button from "./common/Button";
 import CommonModal from "./common/CommonModal";
+import { useDispatch } from "react-redux";
+import { addFanLetter } from "../redux/modules/fanLetter";
 
 function FanLetterForm() {
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
   const [member, setMember] = useState("카리나");
-  const { fanLetter, setFanLetter } = useContext(FanLetterContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
 
   // 모달이 열리면 body에 overflow: hidden; 스타일 적용
   useEffect(() => {
@@ -48,7 +49,7 @@ function FanLetterForm() {
       id: uuid(),
     };
 
-    setFanLetter([newFanLetter, ...fanLetter]);
+    dispatch(addFanLetter(newFanLetter));
     setNickname("");
     setContent("");
     setMember("카리나");
