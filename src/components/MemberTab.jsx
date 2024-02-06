@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 function MemberTab({ selectedMember, setSelectedMember }) {
-  const clickMemberTab = (name) => {
+  const handleMemberTabButtonClick = (name) => {
     setSelectedMember(name);
   };
 
@@ -13,7 +13,7 @@ function MemberTab({ selectedMember, setSelectedMember }) {
           <MemberTabBtn
             type="button"
             key={id}
-            onClick={() => clickMemberTab(name)}
+            onClick={() => handleMemberTabButtonClick(name)}
             selected={selectedMember === name}
           >
             {name}
