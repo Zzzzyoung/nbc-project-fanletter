@@ -100,6 +100,7 @@ const BtnWrapper = styled.footer`
 
 function Detail() {
   const { id } = useParams();
+  // const params = useParams(); 를 구조분해한 것
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [editedTextArea, setEditedTextArea] = useState("");
