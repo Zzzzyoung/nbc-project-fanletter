@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Detail from "pages/Detail";
 import Home from "pages/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import fakeData from "fakeData.json";
 
 function Router() {
@@ -18,6 +18,7 @@ function Router() {
           path="/detail/:id"
           element={<Detail fanLetter={fanLetter} setFanLetter={setFanLetter} />}
         />
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </BrowserRouter>
   );
