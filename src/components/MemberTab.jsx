@@ -12,7 +12,7 @@ const aespa = [
 function MemberTab() {
   const { selectedMember, setSelectedMember } = useContext(MemberContext);
 
-  const clickMemberTab = (name) => {
+  const handleMemberTabButtonClick = (name) => {
     setSelectedMember(name);
   };
 
@@ -23,7 +23,7 @@ function MemberTab() {
           <MemberTabBtn
             type="button"
             key={id}
-            onClick={() => clickMemberTab(name)}
+            onClick={() => handleMemberTabButtonClick(name)}
             selected={selectedMember === name}
           >
             {name}
