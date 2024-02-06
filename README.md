@@ -61,10 +61,9 @@ https://nbc-project-fanletter.vercel.app/
 src
 ├── assets
 ├── components
-│   ├── common
+│   ├── common                    # 공통 컴포넌트
 │   │   ├── Button.jsx            # 공통 버튼
 │   │   ├── CommonModal.jsx       # 공통 모달창
-│   │   ├── Date.jsx              # 공통 날짜 형식
 │   │   └── UserImg.jsx           # 공통 사용자 이미지
 │   ├── FanLetter
 │   │   ├── FanLetterForm.jsx     # 팬레터 등록 폼
@@ -90,6 +89,8 @@ src
 │   └── Router.jsx                # 홈 화면과 상세 화면에 대한 라우터 설정
 ├── style
 │   └── GlobalStyle.jsx           # 전역 스타일
+├── util                          # 공통 함수
+│   │   └── Date.jsx              # 공통 날짜 형식
 ├── App.jsx
 ├── fakeData.json
 └── index.jsx
