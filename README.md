@@ -74,7 +74,7 @@ src
 │   ├── FanLetterContext.jsx      # 팬레터 전역 상태로 관리
 │   └── MemberContext.jsx         # 멤버 전역 상태로 관리
 ├── pages
-│   ├── Detail.jsx                # 팬레터 상세 화
+│   ├── Detail.jsx                # 팬레터 상세 화면
 │   └── Home.jsx                  # 팬레터 홈 화면
 ├── redux
 │   ├── config 
