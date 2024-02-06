@@ -4,12 +4,6 @@ import Header from "components/Header";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const StContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 function Home({ fanLetter, setFanLetter }) {
   const [selectedMember, setSelectedMember] = useState("카리나");
 
@@ -26,3 +20,9 @@ function Home({ fanLetter, setFanLetter }) {
 }
 
 export default Home;
+
+const StContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

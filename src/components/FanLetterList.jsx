@@ -2,28 +2,6 @@ import React from "react";
 import FanLetterItem from "./FanLetterItem";
 import styled from "styled-components";
 
-const FanLetterListWrapper = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 30px;
-  width: 600px;
-  background-color: lightgreen;
-  border-radius: 10px;
-`;
-
-const LetterNone = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  & p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
-`;
-
 function FanLetterList({ fanLetter, selectedMember }) {
   const filteredFanLetterItem = fanLetter.filter((item) => {
     return item.writedTo === selectedMember;
@@ -46,3 +24,25 @@ function FanLetterList({ fanLetter, selectedMember }) {
 }
 
 export default FanLetterList;
+
+const FanLetterListWrapper = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  width: 600px;
+  background-color: lightgreen;
+  border-radius: 10px;
+`;
+
+const LetterNone = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+`;
