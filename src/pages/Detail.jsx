@@ -4,100 +4,6 @@ import styled from "styled-components";
 import defaultUserImg from "assets/defaultUserImg.png";
 import { FanLetterContext } from "context/FanLetterContext";
 
-const HomeBtn = styled.div`
-  margin: 20px 20px;
-
-  & button {
-    height: 35px;
-    width: 70px;
-    font-size: 15px;
-  }
-`;
-
-const Container = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const DetailFanLetterItemWrapper = styled.section`
-  background-color: purple;
-  color: white;
-  height: 500px;
-  width: 800px;
-`;
-
-const UserHeader = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 35px 30px;
-`;
-
-const UserInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  font-size: 32px;
-  font-weight: 600;
-
-  & figure {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-      border-radius: 50%;
-    }
-  }
-
-  & p {
-    width: 400px;
-  }
-`;
-
-const UserMain = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 20px;
-  margin: 40px 40px 20px 40px;
-`;
-
-const EditContent = styled.textarea`
-  padding: 20px 30px;
-  height: 202px;
-  background-color: blue;
-  line-height: 2rem;
-  color: white;
-  font-size: 20px;
-  resize: none;
-`;
-
-const UserContent = styled.p`
-  padding: 20px 30px;
-  height: 200px;
-  background-color: blue;
-  line-height: 2rem;
-`;
-
-const BtnWrapper = styled.footer`
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-right: 40px;
-
-  & button {
-    height: 35px;
-    width: 55px;
-    font-size: 15px;
-  }
-`;
-
 function Detail() {
   const { id } = useParams();
   // const params = useParams(); 를 구조분해한 것
@@ -211,3 +117,97 @@ function Detail() {
 }
 
 export default Detail;
+
+const HomeBtn = styled.div`
+  margin: 20px 20px;
+
+  & button {
+    height: 35px;
+    width: 70px;
+    font-size: 15px;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DetailFanLetterItemWrapper = styled.section`
+  background-color: purple;
+  color: white;
+  height: 500px;
+  width: 800px;
+`;
+
+const UserHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 35px 30px;
+`;
+
+const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 32px;
+  font-weight: 600;
+
+  & figure {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      border-radius: 50%;
+    }
+  }
+
+  & p {
+    width: 400px;
+  }
+`;
+
+const UserMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 20px;
+  margin: 40px 40px 20px 40px;
+`;
+
+const EditContent = styled.textarea`
+  padding: 20px 30px;
+  height: 202px;
+  background-color: blue;
+  line-height: 2rem;
+  color: white;
+  font-size: 20px;
+  resize: none;
+`;
+
+const UserContent = styled.p`
+  padding: 20px 30px;
+  height: 200px;
+  background-color: blue;
+  line-height: 2rem;
+`;
+
+const BtnWrapper = styled.footer`
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 40px;
+
+  & button {
+    height: 35px;
+    width: 55px;
+    font-size: 15px;
+  }
+`;

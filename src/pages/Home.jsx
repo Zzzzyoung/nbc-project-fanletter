@@ -3,12 +3,6 @@ import FanLetterList from "components/FanLetterList";
 import Header from "components/Header";
 import styled from "styled-components";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 function Home() {
   return (
     <Container>
@@ -20,3 +14,9 @@ function Home() {
 }
 
 export default Home;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

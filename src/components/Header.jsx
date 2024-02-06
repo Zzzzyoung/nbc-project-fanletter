@@ -2,6 +2,17 @@ import React from "react";
 import MemberTab from "./MemberTab";
 import styled from "styled-components";
 
+function Header() {
+  return (
+    <Container>
+      <Title>에스파 팬레터함</Title>
+      <MemberTab />
+    </Container>
+  );
+}
+
+export default Header;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,14 +28,3 @@ const Title = styled.h1`
   font-weight: 900;
   margin: 60px auto 50px auto;
 `;
-
-function Header() {
-  return (
-    <Container>
-      <Title>에스파 팬레터함</Title>
-      <MemberTab />
-    </Container>
-  );
-}
-
-export default Header;

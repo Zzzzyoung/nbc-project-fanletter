@@ -3,6 +3,44 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import defaultUserImg from "assets/defaultUserImg.png";
 
+function FanLetterItem({ item }) {
+  const navigate = useNavigate();
+
+  const formattedCreatedAt = new Date(item.createdAt).toLocaleDateString(
+    "ko-Kr",
+    {
+      year: "2-digit",
+      month: "2-digit",
+      day: "2-digit",
+      weekday: "short",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    }
+  );
+
+  return (
+    <FanLetterItemWrapper
+      onClick={() => {
+        navigate(`/detail/${item.id}`);
+      }}
+    >
+      <UserInfo>
+        <UserImg>
+          <img src={item.avatar ?? defaultUserImg} alt="유저이미지" />
+        </UserImg>
+        <UserText>
+          <p>{item.nickname}</p>
+          <time>{formattedCreatedAt}</time>
+        </UserText>
+      </UserInfo>
+      <Content>{item.content}</Content>
+    </FanLetterItemWrapper>
+  );
+}
+
+export default FanLetterItem;
+
 const FanLetterItemWrapper = styled.li`
   display: flex;
   flex-direction: column;
@@ -58,41 +96,3 @@ const Content = styled.p`
   text-overflow: ellipsis;
   font-size: 16px;
 `;
-
-function FanLetterItem({ item }) {
-  const navigate = useNavigate();
-
-  const formattedCreatedAt = new Date(item.createdAt).toLocaleDateString(
-    "ko-Kr",
-    {
-      year: "2-digit",
-      month: "2-digit",
-      day: "2-digit",
-      weekday: "short",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    }
-  );
-
-  return (
-    <FanLetterItemWrapper
-      onClick={() => {
-        navigate(`/detail/${item.id}`);
-      }}
-    >
-      <UserInfo>
-        <UserImg>
-          <img src={item.avatar ?? defaultUserImg} alt="유저이미지" />
-        </UserImg>
-        <UserText>
-          <p>{item.nickname}</p>
-          <time>{formattedCreatedAt}</time>
-        </UserText>
-      </UserInfo>
-      <Content>{item.content}</Content>
-    </FanLetterItemWrapper>
-  );
-}
-
-export default FanLetterItem;
