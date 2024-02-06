@@ -36,7 +36,7 @@ const Title = styled.figure`
   align-items: center;
   justify-content: center;
   width: 200px;
-  height: 130px;
+  height: 150px;
 
   img {
     width: 100%;

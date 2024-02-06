@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Button from "../common/Button";
 import CommonModal from "../common/CommonModal";
 import { useDispatch } from "react-redux";
-import { addFanLetter } from "../../redux/modules/fanLetter";
+import { addFanLetter } from "../../redux/modules/fanLetters";
 
 function FanLetterForm() {
   const [nickname, setNickname] = useState("");

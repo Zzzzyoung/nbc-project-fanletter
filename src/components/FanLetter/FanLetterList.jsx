@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 
 function FanLetterList() {
   const selectedMember = useSelector((state) => state.member);
-  const fanLetter = useSelector((state) => state.fanLetter);
+  const fanLetters = useSelector((state) => state.fanLetters);
 
-  const filteredFanLetterItem = fanLetter.filter((item) => {
+  const filteredFanLetterItem = fanLetters.filter((item) => {
     return item.writedTo === selectedMember;
   });
 

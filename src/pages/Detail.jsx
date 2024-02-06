@@ -6,7 +6,7 @@ import UserImg from "components/common/UserImg";
 import Button from "components/common/Button";
 import CommonModal from "components/common/CommonModal";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteFanLetter, editFanLetter } from "../redux/modules/fanLetter";
+import { deleteFanLetter, editFanLetter } from "../redux/modules/fanLetters";
 
 function Detail() {
   const { id } = useParams();
@@ -15,10 +15,10 @@ function Detail() {
   const [editedTextArea, setEditedTextArea] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const fanLetter = useSelector((state) => state.fanLetter);
+  const fanLetters = useSelector((state) => state.fanLetters);
   const dispatch = useDispatch();
 
-  const { avatar, nickname, createdAt, writedTo, content } = fanLetter.find(
+  const { avatar, nickname, createdAt, writedTo, content } = fanLetters.find(
     (item) => item.id === id
   );
 

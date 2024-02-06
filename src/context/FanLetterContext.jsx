@@ -4,10 +4,10 @@ import fakeData from "fakeData.json";
 export const FanLetterContext = createContext(null);
 
 function FanLetterContextProvider({ children }) {
-  const [fanLetter, setFanLetter] = useState(fakeData);
+  const [fanLetters, setFanLetter] = useState(fakeData);
 
   return (
-    <FanLetterContext.Provider value={{ fanLetter, setFanLetter }}>
+    <FanLetterContext.Provider value={{ fanLetters, setFanLetter }}>
       {children}
     </FanLetterContext.Provider>
   );
