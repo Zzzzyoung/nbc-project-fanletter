@@ -1,6 +1,8 @@
+// 액션 타입 정의
 // 멤버 선택
 const SELECT_MEMBER = "member/SELECT_MEMBER";
 
+// 액션 create 함수
 export const selectMember = (payload) => {
   return {
     type: SELECT_MEMBER,

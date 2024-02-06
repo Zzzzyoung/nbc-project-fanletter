@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { formattedCreatedAt } from "components/common/Date";
+import { formattedCreatedAt } from "util/Date";
 import UserImg from "components/common/UserImg";
 import Button from "components/common/Button";
 import CommonModal from "components/common/CommonModal";

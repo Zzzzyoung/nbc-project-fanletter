@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { formattedCreatedAt } from "components/common/Date";
+import { formattedCreatedAt } from "util/Date";
 import UserImg from "../common/UserImg";
 
 function FanLetterItem({ item }) {

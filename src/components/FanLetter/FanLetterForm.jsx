@@ -54,7 +54,7 @@ function FanLetterForm() {
     dispatch(addFanLetter(newFanLetter));
     setNickname("");
     setContent("");
-    setMember("카리나");
+    setMember("");
     closeModal();
   };
 
@@ -77,7 +77,7 @@ function FanLetterForm() {
           }}
         />
       </FormInput>
-      <FormTextarea>
+      <FormInput>
         <label>내용 :&nbsp;</label>
         <textarea
           name="content"
@@ -88,7 +88,7 @@ function FanLetterForm() {
             setContent(event.target.value);
           }}
         />
-      </FormTextarea>
+      </FormInput>
       <FormSelect>
         <label>TO.</label>
         <div>
@@ -147,16 +147,6 @@ const FormInput = styled.div`
     width: 100%;
     height: 30px;
     padding-left: 10px;
-  }
-`;
-
-const FormTextarea = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  & label {
-    width: 80px;
   }
 
   & textarea {
