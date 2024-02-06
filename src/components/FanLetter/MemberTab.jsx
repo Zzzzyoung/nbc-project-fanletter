@@ -13,7 +13,7 @@ function MemberTab() {
   const selectedMember = useSelector((state) => state.member);
   const dispatch = useDispatch();
 
-  const clickMemberTab = (name) => {
+  const handleMemberTabButtonClick = (name) => {
     dispatch(selectMember(name));
   };
 
@@ -24,7 +24,7 @@ function MemberTab() {
           <MemberTabBtn
             type="button"
             key={id}
-            onClick={() => clickMemberTab(name)}
+            onClick={() => handleMemberTabButtonClick(name)}
             $selected={selectedMember === name}
           >
             {name}
