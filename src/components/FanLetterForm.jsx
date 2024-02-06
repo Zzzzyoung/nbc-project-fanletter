@@ -39,7 +39,7 @@ function FanLetterForm() {
   };
 
   return (
-    <Form>
+    <Form onSubmit={submitFanLetter}>
       <FormInput>
         <label>닉네임 :&nbsp;</label>
         <input
@@ -79,9 +79,7 @@ function FanLetterForm() {
         </div>
       </FormSelect>
       <FormBtn>
-        <button type="submit" onClick={submitFanLetter}>
-          팬레터 등록
-        </button>
+        <button type="submit">팬레터 등록</button>
       </FormBtn>
     </Form>
   );
