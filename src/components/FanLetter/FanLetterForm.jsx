@@ -109,6 +109,7 @@ function FanLetterForm() {
             <option value={""}>멤버를 선택하세요.</option>
             <option value="카리나">카리나</option>
             <option value="지젤">지젤</option>
+            <option value="남지현">남지현</option>
             <option value="윈터">윈터</option>
             <option value="닝닝">닝닝</option>
           </select>

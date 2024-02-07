@@ -16,12 +16,20 @@
     "id": "2"
   },
   {
+    "createdAt": "2023-11-02T23:13:18.491Z",
+    "nickname": "남씨의자랑남지현",
+    "avatar": "https://velog.velcdn.com/images/zyoung/post/2850f3ba-d4f1-4081-a1b4-29cbd4953870/image.jpeg",
+    "content": "혹시 너 MBIT가 CUTE?",
+    "writedTo": "남지현",
+    "id": "3"
+  },
+  {
     "createdAt": "2023-11-02T11:25:37.026Z",
     "nickname": "겨울이",
     "avatar": "https://velog.velcdn.com/images/zyoung/post/ac8d3a31-7fe7-4409-a570-27743c31279b/image.jpeg",
     "content": "민정이 콧대에서 미끄러져서 나 지금 미국 와있다.",
     "writedTo": "윈터",
-    "id": "3"
+    "id": "4"
   },
   {
     "createdAt": "2023-11-02T16:06:34.150Z",
@@ -29,7 +37,7 @@
     "avatar": "https://velog.velcdn.com/images/zyoung/post/4ac21b7e-3806-4b6c-9e87-ecaaa17bcb3f/image.jpg",
     "content": "여기서 나가려 합니다. 닝닝이를 더 이상 못 보겠습니다. 닝닝이가 아기 고양이로 보입니다. 그리고 그 아기 고양이를 사랑하게 되었습니다.",
     "writedTo": "닝닝",
-    "id": "4"
+    "id": "5"
   },
   {
     "createdAt": "2023-11-03T05:40:17.575Z",
@@ -37,6 +45,6 @@
     "avatar": "https://velog.velcdn.com/images/zyoung/post/273417ec-a007-46c4-a24a-c2ebdeb4562e/image.jpg",
     "content": "지민이는 물복임? 딱복임? 아니면 내 삶에 찾아온 행복이자 축복임?",
     "writedTo": "카리나",
-    "id": "5"
+    "id": "6"
   }
 ]

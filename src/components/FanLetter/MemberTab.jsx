@@ -5,8 +5,9 @@ import { selectMember } from "../../redux/modules/member";
 const aespa = [
   { id: 1, name: "카리나" },
   { id: 2, name: "지젤" },
-  { id: 3, name: "윈터" },
-  { id: 4, name: "닝닝" },
+  { id: 3, name: "남지현" },
+  { id: 4, name: "윈터" },
+  { id: 5, name: "닝닝" },
 ];
 
 function MemberTab() {
