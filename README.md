@@ -84,7 +84,7 @@ src
 │   ├── config
 │   │   └── configStore.js
 │   └── modules
-│   │   ├── fanLetters.js
+│   │   ├── buttons.js
 │   │   └── member.js
 ├── shared
 │   └── Router.jsx                # 홈 화면과 상세 화면에 대한 라우터 설정

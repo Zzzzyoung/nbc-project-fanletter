@@ -13,6 +13,18 @@ function FanLetterForm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
 
+  const handleNickNameChange = (event) => {
+    setNickname(event.target.value);
+  };
+
+  const handleContentChange = (event) => {
+    setContent(event.target.value);
+  };
+
+  const handleMember = (event) => {
+    setMember(event.target.value);
+  };
+
   // 모달이 열리면 body에 overflow: hidden; 스타일 적용
   useEffect(() => {
     document.body.style.overflow = isModalOpen ? "hidden" : "auto";
@@ -72,9 +84,7 @@ function FanLetterForm() {
           maxLength={20}
           autoFocus
           value={nickname}
-          onChange={(event) => {
-            setNickname(event.target.value);
-          }}
+          onChange={handleNickNameChange}
         />
       </FormInput>
       <FormInput>
@@ -84,9 +94,7 @@ function FanLetterForm() {
           placeholder="최대 100글자까지 작성할 수 있습니다."
           maxLength={100}
           value={content}
-          onChange={(event) => {
-            setContent(event.target.value);
-          }}
+          onChange={handleContentChange}
         />
       </FormInput>
       <FormSelect>
@@ -96,7 +104,7 @@ function FanLetterForm() {
             id="member"
             name="writedTo"
             value={member}
-            onChange={(event) => setMember(event.target.value)}
+            onChange={handleMember}
           >
             <option value={""}>멤버를 선택하세요.</option>
             <option value="카리나">카리나</option>
